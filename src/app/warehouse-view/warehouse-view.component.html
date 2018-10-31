@@ -1,5 +1,10 @@
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
+<h1>Ihr Warehouse</h1>
+
+<div class="list">
+  <ol class="parts">
+    <li *ngFor="let part of parts">
+      <a> {{part.name}} | {{part.description}}</a>
+    </li>
+  </ol>
+</div>
+<a routerLink="/neworder"><button>Neue Bestellung</button></a>

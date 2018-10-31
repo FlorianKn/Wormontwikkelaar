@@ -1,0 +1,11 @@
+<h2>Bestellungen</h2>
+<div class = "grid-container">
+  <div class="grid-item" *ngFor="let order of orderList">
+   <img src={{order.picUrl}} alt="Bohrmaschine" style="width:100%">
+   <div class="container">
+    <h4>Beschreibung: {{order.description}}</h4>
+    <p>Status: {{order.status}}</p>
+    <p>Bestelldatum: {{order.orderDate}}</p>
+   </div>
+  </div>
+</div>

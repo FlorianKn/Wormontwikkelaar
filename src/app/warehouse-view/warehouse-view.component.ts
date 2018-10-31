@@ -9,7 +9,7 @@ import { PARTLIST } from '../mock-part';
 })
 export class WarehouseViewComponent implements OnInit {
   //Parts: Part[];
-  heroes = PARTLIST;
+  parts = PARTLIST;
 
   constructor() { }
 
