@@ -9,3 +9,21 @@
    </div>
   </div>
 </div>
+<h2>Neue Bestellung aufgeben</h2>
+<p>Part:
+  <select id="Part">
+    <option value="Schrauben">Schrauben</option>
+    <option value="Zange">Zange</option>
+    <option value="Messgeraet">Messgerät</option>
+  </select>
+</p>
+<p>Menge: <input id="Menge" name="Menge" placeholder="..."></p>
+<p>Einheit:
+  <select>
+    <option value="Meter">Meter</option>
+    <option value="Stueck">Stück</option>
+    <option value="Kilogramm">Kilogramm</option>
+  </select>
+ </p>
+<p>Beschreibung: <input id="Beschreibung" name="Beschreibung" placeholder="..."></p>
+<Button (click)="newOder()">Bestellung aufgeben</Button>

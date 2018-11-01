@@ -4,7 +4,7 @@ export class WarehouseOrder {
   orderNumber: number;
   description: string;
   orderDate: string;
-  //parts: Parts;
+  parts: Parts;
   status: string;
   picUrl: string;
 

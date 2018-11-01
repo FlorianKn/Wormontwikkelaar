@@ -2,7 +2,7 @@ import { Part } from './part';
 
 export class Parts {
   id: number;
-  quantity: number;
+  quantity: string;
   unit: string;
   part: Part;
 
