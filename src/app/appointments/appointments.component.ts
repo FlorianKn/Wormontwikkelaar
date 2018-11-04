@@ -8,18 +8,15 @@ import { Appointments } from './mock-appointments';
   styleUrls: ['./appointments.component.css']
 })
 export class AppointmentsComponent implements OnInit {
-
-  appointments = Appointments
+  selectedAppointment: Appointment;
+  appointments = Appointments;
 
   constructor() { }
 
   ngOnInit() {
   }
-  
-  selectedAppointment: Appointment;
-  
   onSelect(appointment: Appointment): void {
-   this.selectedAppointment = appointment 
+   this.selectedAppointment = appointment;
   }
 
 }

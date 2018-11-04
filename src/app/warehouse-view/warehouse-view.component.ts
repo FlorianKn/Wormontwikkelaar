@@ -8,7 +8,7 @@ import { PARTLIST } from '../mock-part';
   styleUrls: ['./warehouse-view.component.css']
 })
 export class WarehouseViewComponent implements OnInit {
-  //Parts: Part[];
+  // Parts: Part[];
   parts = PARTLIST;
 
   constructor() { }
