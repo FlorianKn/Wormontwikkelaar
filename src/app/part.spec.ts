@@ -7,11 +7,11 @@ describe('Part', () => {
 });
 
   it('should accept values in the constructor', () => {
-    let part = new Part({
+    const part = new Part({
       name: 'newPart',
       description: 'newDescription'
     });
     expect(part.name).toEqual('newPart');
     expect(part.description).toEqual('newDescription');
   });
-});
+
