@@ -1,0 +1,21 @@
+<h2>My Appointments</h2>
+<ul class="appointments">
+  <li *ngFor="let appointment of appointments" 
+  [class.selected]="appointment === selectedAppointment"
+  (click)="onSelect(appointment)">
+    <span class="badge">{{appointment.id}}</span> {{appointment.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedAppointment"> 
+  <h2>{{selectedAppointment.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedAppointment.id}}</div>
+  <div>
+    <label>name: {{selectedAppointment.name}}
+    </label>
+  </div>
+</div>
+
+<a routerLink="/appointmentdetails"><button>Appointment Details</button></a>
+<a routerLink="/servicecompletion"><button>Service Completion</button></a>
+

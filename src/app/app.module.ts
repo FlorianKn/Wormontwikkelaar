@@ -4,6 +4,10 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { WarehouseViewComponent } from './warehouse-view/warehouse-view.component';
 import { NewOrderComponent } from './new-order/new-order.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
+import { ServiceCompletionComponent } from './service-completion/service-completion.component';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -26,7 +30,10 @@ import { RegisterComponent } from './register/register.component';
     AlertComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AppointmentsComponent,
+    AppointmentDetailsComponent,
+    ServiceCompletionComponent
   ],
   imports: [
     BrowserModule,

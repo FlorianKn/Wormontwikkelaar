@@ -6,6 +6,9 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { WarehouseViewComponent } from './warehouse-view/warehouse-view.component';
 import { NewOrderComponent } from './new-order/new-order.component';
+import { AppointmentDetailsComponent } from './appointment-details/appointment-details.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { ServiceCompletionComponent } from './service-completion/service-completion.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -13,6 +16,9 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'warehouse', component: WarehouseViewComponent },
     { path: 'neworder', component: NewOrderComponent },
+    { path: 'appointments', component: AppointmentsComponent },
+    { path: 'appointmentdetails', component: AppointmentDetailsComponent },
+    { path: 'servicecompletion', component: ServiceCompletionComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
