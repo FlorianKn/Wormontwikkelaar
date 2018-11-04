@@ -1,7 +1,7 @@
-import { MockPart } from './mock-part';
+import { Part } from './part';
 
 describe('MockPart', () => {
   it('should create an instance', () => {
-    expect(new MockPart()).toBeTruthy();
+    expect(new Part()).toBeTruthy();
   });
 });
