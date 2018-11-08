@@ -30,7 +30,7 @@ export class NewOrderComponent implements OnInit {
      wo.orderNumber = this.orderList.length + 1;
      wo.description = description;
      wo.status = "New";
-     wo.orderDate = '1.11.18'
+     wo.orderDate = this.getDate();
      wo.parts = this.parts;
 
      if(part == "Schrauben"){
@@ -45,5 +45,12 @@ export class NewOrderComponent implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  getDate(){
+    var today = Date.now();
+    var date=new Date(today);
+
+    return date.toString();
   }
 }

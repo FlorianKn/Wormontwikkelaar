@@ -3,7 +3,7 @@ import { Parts } from './parts';
 export class WarehouseOrder {
   orderNumber: number;
   description: string;
-  orderDate: string;
+  orderDate: String;
   parts: Parts;
   status: string;
   picUrl: string;
