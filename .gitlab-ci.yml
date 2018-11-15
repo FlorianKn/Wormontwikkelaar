@@ -1,10 +1,22 @@
-image: node:latest
+image: node:8.9.4
+
+before_script:
+  - npm install
 
 cache:
   paths:
-    - node_modules/
+  - node_modules/
 
-test_letslearn:
+stages:
+  - test
+
+test_proj:
+  stage: test
+  tags:
+    - linux
   script:
-    - npm install
-- ./node_modules/@angular/cli/bin/ng test --single-run=true --browsers PhantomJS --watch=false
+    - ./node_modules/.bin/ng test --watch=false --code-coverage=true --single-run=true --browser=ChromeHeadless
+  artifacts:
+    paths:
+      - coverage/*
+  coverage: '/(\d*.?\d+)%/'
