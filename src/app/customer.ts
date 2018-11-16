@@ -9,8 +9,9 @@ export class Customer {
     mail: string;
     web: string;
     address: string;
-    //serviceProducts: serviceProducts;
-    //serviceHistory: serviceHistory;
+    // ID Lists
+    serviceProducts: number[] = [];
+    serviceHistory: number[] = [];
  
     constructor(values: Object = {}) {
       Object.assign(this, values);
