@@ -12,4 +12,4 @@ export class Services {
     Object.assign(this, values);
   }
 }
-}
+
