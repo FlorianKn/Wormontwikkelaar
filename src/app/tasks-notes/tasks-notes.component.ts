@@ -49,8 +49,6 @@ export class TasksNotesComponent implements OnInit {
   ngOnInit() {
     // load task notes from db and technicians
     this.creationDate = formatDate(new Date());
-    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
-    this.action = 'insert';
   }
 
   addTaskNote(value: any) {
@@ -63,17 +61,21 @@ export class TasksNotesComponent implements OnInit {
     this.action = 'update';
     this.updatedIndex = this.tasksNotes.indexOf(taskNote);
   }
+  addNewTaskNoteModel() {
+    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
+    this.action = 'insert';
+  }
 
   deleteTaskNote(taskNote: TaskNote) {
     const index = this.tasksNotes.indexOf(taskNote);
     if (index !== -1) {
-       delete this.tasksNotes[index];
+      delete this.tasksNotes[index];
     }
   }
 
   updateTaskNote(taskNote: TaskNote) {
     this.tasksNotes[this.updatedIndex] =
-     new TaskNote (taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
+      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
   }
 
   onSubmit(model: any, action: string) {
