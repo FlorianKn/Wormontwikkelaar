@@ -14,8 +14,12 @@ test_proj:
   stage: test
   tags:
     - linux
+
   script:
-    - ./node_modules/.bin/ng test --watch=false --code-coverage=true --single-run=true --browser=ChromeHeadless
+    - ng test --single-run --progress false
+    - ng e2e --progress false
+  script:
+    - ./node_modules/.bin/ng test --watch=false --code-coverage=true --browsers=ChromeHeadless
   artifacts:
     paths:
       - coverage/*
