@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { WarehouseViewComponent } from './warehouse-view/warehouse-view.component';
@@ -21,10 +22,11 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TasksNotesComponent } from './tasks-notes/tasks-notes.component';
 
 
 
-//import{HttpClientModule} from '@angular/common/http';
+// import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,14 @@ import { RegisterComponent } from './register/register.component';
     AppointmentDetailsComponent,
     ServiceCompletionComponent,
     CustomersComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
+    TasksNotesComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,
     routing
   ],
   exports: [],

@@ -1,0 +1,124 @@
+<div style="display:flex;justify-content: space-between">
+  <h4>Tasks and Notes</h4>
+  <button style="margin-left:auto;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <i class="fas fa-plus fa-sm"></i> New Task/ Note
+  </button>
+</div>
+
+<!-- Accordion -->
+<div id="accordion" style="margin-top:15px;">
+  <div class="card" *ngFor="let status of stati; let index=index">
+    <div class="card-header" id="heading-{{index}}">
+      <h5 class="mb-0">
+        <button class="btn btn-link" [ngClass]="{'collapsed': CountTaskNotes2Status(status) == 0}" data-toggle="collapse"
+          [attr.data-target]="'#collapse-' + index" [attr.aria-expanded]="CountTaskNotes2Status(status) == 0 ? false : true"
+          [attr.aria-controls]="'collapse-' + index">
+          {{status}}
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapse-{{index}}" class="collapse" [ngClass]="{'show': CountTaskNotes2Status(status) > 0}"
+      [attr.aria-labelledby]="'heading-' + index" data-parent="#accordion">
+      <div class="card-body">
+        <div class="row" style="margin-top: 10px;">
+          <div class="col-sm-6" *ngFor="let taskNote of getTaskNotesByStatus(status) ">
+            <div class="card" *ngIf="taskNote.status == status" style="background-color: #e9ecefad;">
+              <div class="card-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <i [ngClass]="{'fa-sticky-note': taskNote.type == 'Note', 'fa-tasks': taskNote.type == 'Task'}"
+                      [style.color]="taskNote.type == 'Task' ? 'coral' : 'cornflowerblue'" class="fas fa-sm ml-auto"
+                      style="margin: auto 0 auto 0;"></i>
+                    <p class="card-text" [style.color]="taskNote.type == 'Task' ? 'coral' : 'cornflowerblue'" style="margin-left:15px;">
+                      {{taskNote.type}}</p>
+                  </div>
+                  <div class="row">
+                    <h5 class="card-title" style="word-break: break-all;">{{taskNote.title}}</h5>
+                  </div>
+                  <div class="row">
+                    <p class="card-text" style="height:100px; overflow:auto;">{{taskNote.description}}</p>
+                  </div>
+                  <div class="row">
+                    <p *ngFor="let technician of technicians"><small style="padding-left:0px;" *ngIf="technician.id == taskNote.technicianId"
+                        class="text-muted col-md-5">{{technician.firstName}}
+                        {{technician.lastName}}, {{taskNote.creationDate | date}}</small></p>
+                  </div>
+                  <div class="row">
+                    <button class="btn btn-default btn-sm col-md-4" (click)="deleteTaskNote(taskNote)"><i class="fas fa-trash-alt fa-sm"></i>
+                      Delete</button>
+                    <button class="btn btn-default btn-sm col-md-4 ml-1" (click)="updateTaskNote(taskNote)" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit fa-sm"></i> Edit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new Task or Note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form (ngSubmit)="onSubmit(model); taskNoteForm.reset()" #taskNoteForm="ngForm">
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="type">Type</label>
+                <select class="form-control" id="type" [(ngModel)]="model.type" name="type" required #type="ngModel">
+                  <option *ngFor="let type of types" [value]="type">{{type}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-6 ml-auto">
+                <label for="creationDate">Creation date</label>
+                <input type="date" disabled class="form-control" id="creationDate" name="creationDate" [value]="creationDate">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="title">Title</label>
+                <input type="text" required class="form-control" id="title" [(ngModel)]="model.title" name="title">
+              </div>
+              <div class="form-group col-md-6 ml-auto">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" [(ngModel)]="model.status" name="status" required #status="ngModel">
+                  <option *ngFor="let status of stati" [value]="status">{{status}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row" style="margin-top:10px;">
+              <div class="form-group col-md-6">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" [(ngModel)]="model.description" name="description"></textarea>
+              </div>
+              <div class="form-group col-md-6 ml-auto">
+                <label for="technician">Technician</label>
+                <select class="form-control" id="technician" [(ngModel)]="model.technicianId" name="technicianId"
+                  required #technician="ngModel">
+                  <option *ngFor="let technician of technicians" [value]="technician.id">{{technician.firstName}}
+                    {{technician.lastName}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times fa-sm"></i> Close</button>
+          <button type="submit" [disabled]="!taskNoteForm.form.valid" class="btn btn-success"><i class="fas fa-plus fa-sm"></i>
+            Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
