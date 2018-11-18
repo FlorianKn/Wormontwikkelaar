@@ -8,6 +8,7 @@ import { TaskNote } from './../task-note';
   styleUrls: ['./tasks-notes.component.css']
 })
 export class TasksNotesComponent implements OnInit {
+  action: string;
   model: TaskNote;
   stati: string[];
   types: string[];
@@ -15,7 +16,7 @@ export class TasksNotesComponent implements OnInit {
   technicians: Technician[];
   submitted = false;
   tasksNotes: TaskNote[];
-  lastInsertIndex: number;
+  updatedIndex: number;
 
   constructor() {
     this.stati = ['Open', 'InProgress', 'Finished'];
@@ -49,17 +50,18 @@ export class TasksNotesComponent implements OnInit {
     // load task notes from db and technicians
     this.creationDate = formatDate(new Date());
     this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
+    this.action = 'insert';
   }
 
   addTaskNote(value: any) {
-    this.tasksNotes.push(new TaskNote(value.title, value.status, value.type, new Date(), value.technicianId, value.description));
-    this.lastInsertIndex = this.tasksNotes.length - 1;
+    this.tasksNotes.unshift(new TaskNote(value.title, value.status, value.type, new Date(), value.technicianId, value.description));
   }
 
-  updateTaskNote(taskNote: TaskNote) {
-    this.deleteTaskNote(taskNote);
+  updateTaskNoteModel(taskNote: TaskNote) {
     this.model =
       new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
+    this.action = 'update';
+    this.updatedIndex = this.tasksNotes.indexOf(taskNote);
   }
 
   deleteTaskNote(taskNote: TaskNote) {
@@ -69,11 +71,19 @@ export class TasksNotesComponent implements OnInit {
     }
   }
 
-  onSubmit(model: any) {
+  updateTaskNote(taskNote: TaskNote) {
+    this.tasksNotes[this.updatedIndex] =
+     new TaskNote (taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
+  }
+
+  onSubmit(model: any, action: string) {
     this.submitted = true;
-    this.addTaskNote(model);
-    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
-    // need to update model
+    if (action === 'insert') {
+      this.addTaskNote(model);
+      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
+    } else {
+      this.updateTaskNote(model);
+    }
   }
 
   CountTaskNotes2Status(status: string) {

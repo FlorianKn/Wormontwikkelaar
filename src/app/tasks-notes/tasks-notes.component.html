@@ -1,6 +1,6 @@
 <div style="display:flex;justify-content: space-between">
   <h4>Tasks and Notes</h4>
-  <button style="margin-left:auto;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <button style="margin-left:auto;" type="button" class="btn btn-primary" (click)="action='insert'" data-toggle="modal" data-target="#exampleModal">
     <i class="fas fa-plus fa-sm"></i> New Task/ Note
   </button>
 </div>
@@ -47,7 +47,7 @@
                   <div class="row">
                     <button class="btn btn-default btn-sm col-md-4" (click)="deleteTaskNote(taskNote)"><i class="fas fa-trash-alt fa-sm"></i>
                       Delete</button>
-                    <button class="btn btn-default btn-sm col-md-4 ml-1" (click)="updateTaskNote(taskNote)" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit fa-sm"></i> Edit</button>
+                    <button class="btn btn-default btn-sm col-md-4 ml-1" (click)="updateTaskNoteModel(taskNote)" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit fa-sm"></i> Edit</button>
                   </div>
                 </div>
               </div>
@@ -65,12 +65,13 @@
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add new Task or Note</h5>
+        <h5 class="modal-title" id="exampleModalLabel" *ngIf="action==='insert'">Add new Task or Note</h5>
+        <h5 class="modal-title" id="exampleModalLabel" *ngIf="action==='update'">Update {{model.type}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form (ngSubmit)="onSubmit(model); taskNoteForm.reset()" #taskNoteForm="ngForm">
+      <form (ngSubmit)="onSubmit(model, action);" #taskNoteForm="ngForm">
         <div class="modal-body">
           <div class="container-fluid">
             <div class="row">
@@ -115,8 +116,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times fa-sm"></i> Close</button>
-          <button type="submit" [disabled]="!taskNoteForm.form.valid" class="btn btn-success"><i class="fas fa-plus fa-sm"></i>
-            Add</button>
+          <button type="submit" [disabled]="!taskNoteForm.form.valid" class="btn btn-success"><i class="fas fa-check fa-sm"></i>
+            Save</button>
         </div>
       </form>
     </div>
