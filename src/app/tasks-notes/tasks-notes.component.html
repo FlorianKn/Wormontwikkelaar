@@ -9,12 +9,13 @@
 <div id="accordion" style="margin-top:15px;">
   <div class="card" *ngFor="let status of stati; let index=index">
     <div class="card-header" id="heading-{{index}}">
-      <h5 class="mb-0">
+      <h5 class="mb-0" style="display:flex;">
         <button class="btn btn-link" [ngClass]="{'collapsed': CountTaskNotes2Status(status) == 0}" data-toggle="collapse"
           [attr.data-target]="'#collapse-' + index" [attr.aria-expanded]="CountTaskNotes2Status(status) == 0 ? false : true"
           [attr.aria-controls]="'collapse-' + index">
           {{status}}
         </button>
+        <span style="margin: auto 0 auto auto;font-weight:400">{{CountTaskNotes2Status(status)}}</span>
       </h5>
     </div>
 

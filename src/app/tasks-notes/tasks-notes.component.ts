@@ -49,6 +49,7 @@ export class TasksNotesComponent implements OnInit {
   ngOnInit() {
     // load task notes from db and technicians
     this.creationDate = formatDate(new Date());
+    this.addNewTaskNoteModel();
   }
 
   addTaskNote(value: any) {
