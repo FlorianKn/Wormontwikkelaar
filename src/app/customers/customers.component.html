@@ -1,22 +1,10 @@
 <h1>Customers</h1>
 
 <ul class="customers">
-  <li *ngFor="let customer of customers"
-    [class.selected]="customer === selectedCustomer"
-    (click)="onSelect(customer)">
-      <span class="badge">{{customer.id}}</span> {{customer.name}}
-</li>
+  <li *ngFor="let customer of customers" [class.selected]="customer === selectedCustomer" (click)="onSelect(customer)">
+    <span class="badge">{{customer.id}}</span> {{customer.name}}
+  </li>
 </ul>
-
 <div *ngIf="selectedCustomer">
-  <h2>{{selectedCustomer.name}} Details</h2>
-  <div><span>id </span>{{selectedCustomer.id}}</div>
-  <div><label>name: {{selectedCustomer.name}}</label></div>
-  <div><label>phone: {{selectedCustomer.phone}}</label></div>
-  <div><label>mail: {{selectedCustomer.mail}}</label></div>
-  <div><label>web: {{selectedCustomer.web}}</label></div>
-  <div> <label>address: {{selectedCustomer.address}}</label>
-  </div>
+  <app-customer-detail [customerId]="selectedCustomer.id"></app-customer-detail>
 </div>
-
-<a routerLink="/customerdetails"><button>Customer Details</button></a>

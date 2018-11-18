@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../data.service'; // for REST Api
 import { Observable } from 'rxjs';
-import { Customer } from '../customer';
 import { Geolocation } from '../geolocation';
 import { Customers } from '../mock-customers';
-
-
+import { Customer } from '../customer';
 
 @Component({
   selector: 'app-customers',
@@ -13,18 +11,20 @@ import { Customers } from '../mock-customers';
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
+  customers: Customer[] = Customers;
+  selectedCustomer: Customer;
 
-  customers = Customers;
-  
   constructor(private data: DataService) { }
 
   ngOnInit() {
   }
 
-  selectedCustomer: Customer;
-
-  onSelect(customer: Customer): void{
+  onSelect(customer: Customer): void {
+    console.log(this.selectedCustomer);
+    delete this.selectedCustomer;
+    console.log(this.selectedCustomer);
     this.selectedCustomer = customer;
+    console.log(this.selectedCustomer);
   }
 
 }
