@@ -1,23 +1,50 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/">Home</a>
-      <a class="nav-item nav-link" routerLink="tasksNotes">Tasks/ Notes</a>
-      <a class="nav-item nav-link" routerLink="/warehouse">Warehouse</a>
-      <a class="nav-item nav-link" routerLink="/neworder">Order</a>
-      <a class="nav-item nav-link" routerLink="/appointments" >Appointments</a>
-      <a class="nav-item nav-link" routerLink="/customers" >Customers</a>
-      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+<nav class="navbar navbar-expand sticky-top navbar-dark bg-dark" *ngIf="currentUser">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="tasksNotes">Tasks/ Notes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/warehouse">Warehouse</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/neworder">Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/appointments">Appointments</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/customers">Customers</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-sm"></i> {{currentUser.username}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/"><i class="fas fa-cog fa-sm"></i> User setting</a>
+          <a class="dropdown-item" (click)="logout()"><i class="fas fa-sign-out-alt fa-sm"></i> Logout</a>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
 
 <!-- main app container -->
 <div class="jumbotron">
   <div class="container">
-      <div class="row">
-          <div class="col-sm-12">
-              <app-alert></app-alert>
-              <router-outlet></router-outlet>
-          </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <app-alert></app-alert>
+        <router-outlet></router-outlet>
       </div>
+    </div>
   </div>
 </div>
