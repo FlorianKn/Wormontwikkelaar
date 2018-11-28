@@ -2,6 +2,17 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
+## Start Project
+
+(After checking out you might need to run `npm udpate`)
+
+To build project: `npm run build`
+To run project: `npm run start`
+
+## Gitlab CI
+
+https://gitlab.com/FlorianKn/Wormontwikkelaar
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

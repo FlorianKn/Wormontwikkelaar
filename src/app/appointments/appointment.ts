@@ -1,17 +1,29 @@
+import { Technician } from '../technician';
+import { Serviceproduct } from '../serviceproduct';
+import { Customer } from '../customer';
+import { Parts } from '../parts';
+import { Services } from '../services';
 
 export class Appointment {
   description: string;
-  technician: string; // TODO
-  serviceProduct: string; // TODO
-  customer: string; // TODO
+  technician: Technician; 
+  serviceProduct: Serviceproduct; 
+  customer: Customer; 
   plannedTime: number; // hours?
-  plannedPartsAndServices: string[]; // TODO different type
-  creationDate: string;
+  plannedParts: Parts;
+  plannedServices: Services;
+  creationDate: string; // date variable?
   dateTimeFrom: string;
   dateTimeTo: string;
-  status: string; // TODO enum
-  usedPartsAndService: string[]; // TODO
+  status: Status;
+  usedParts: Parts;
+  usedServices: Services;
   serviceDateTime: string;
   realDateFrom: string;
   realDateTo: string;
+}
+
+enum Status {
+  Open,
+  Completed
 }
