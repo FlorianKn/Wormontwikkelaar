@@ -12,9 +12,9 @@ export class NewOrderComponent implements OnInit {
  parts: Parts;
 
   public orderList: WarehouseOrder[] = [
-      { orderNumber: 1, description:'Bohrmaschine', status: 'Done', orderDate: '10.10.18', picUrl: 'https://images.obi.de/product/DE/1500x1500/668216_1.jpg', parts: this.parts },
-      { orderNumber: 2, description:'Schrauben von Würth', status: 'InProgress', orderDate: '28.10.18', picUrl: 'https://images-na.ssl-images-amazon.com/images/I/81ZkphY8RaL._SL1500_.jpg' , parts: this.parts},
-      { orderNumber: 3, description:'Schraubenschlüssel-Set', status: 'New', orderDate: '31.10.18', picUrl: 'https://www.hausjournal.net/wp-content/uploads/Schraubenschluessel-Groessen.jpg', parts: this.parts }
+      { orderNumber: 7867, description:'Bohrmaschine', status: 'Done', orderDate: '10.10.18', picUrl: 'https://images.obi.de/product/DE/1500x1500/668216_1.jpg', parts: this.parts },
+      { orderNumber: 2186, description:'Schrauben von Würth', status: 'InProgress', orderDate: '28.10.18', picUrl: 'https://images-na.ssl-images-amazon.com/images/I/81ZkphY8RaL._SL1500_.jpg' , parts: this.parts},
+      { orderNumber: 9262, description:'Schraubenschlüssel-Set', status: 'New', orderDate: '31.10.18', picUrl: 'https://www.hausjournal.net/wp-content/uploads/Schraubenschluessel-Groessen.jpg', parts: this.parts }
   ];
 
   constructor() {
@@ -27,7 +27,7 @@ export class NewOrderComponent implements OnInit {
      var description = (<HTMLInputElement>document.getElementById("Beschreibung")).value;
      var part = (<HTMLInputElement>document.getElementById("Part")).value;
 
-     wo.orderNumber = this.orderList.length + 1;
+     wo.orderNumber = 6361;
      wo.description = description;
      wo.status = "New";
      wo.orderDate = this.getDate();
@@ -52,5 +52,14 @@ export class NewOrderComponent implements OnInit {
     var date=new Date(today);
 
     return date.toString();
+  }
+
+  showAlert(id){
+
+    for (var i=0; i<this.orderList.length; i++) {
+      if(id == this.orderList[i].orderNumber){
+        alert("Beschreibung: " + this.orderList[i].description + ", Bestelldatum: " + this.orderList[i].orderDate + ", Status: " + this.orderList[i].status);
+      }
+    }
   }
 }
