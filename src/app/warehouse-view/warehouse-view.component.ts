@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Part } from '../part';
-import { PARTLIST } from '../mock-part';
+import { PARTSLIST } from '../mock-part';
 
 @Component({
   selector: 'app-warehouse-view',
@@ -9,7 +9,7 @@ import { PARTLIST } from '../mock-part';
 })
 export class WarehouseViewComponent implements OnInit {
   // Parts: Part[];
-  parts = PARTLIST;
+  parts = PARTSLIST;
 
   constructor() { }
 
