@@ -1,10 +1,18 @@
-<div style="display:flex;">
-  <div style="display:flex; flex-direction: column;">
-    <span>Name: {{selectedCustomer.name}}</span>
-    <span>Phone: {{selectedCustomer.phone}}</span>
-    <span>Mail: {{selectedCustomer.mail}}</span>
-    <span>Web: {{selectedCustomer.web}}</span>
-    <span>Address: {{selectedCustomer.address}}</span>
-  </div>
-  <div id="map" class="map"></div>
+<div style="display:flex;" id="customerDetails">
+  <table cellspacing="10" cellpadding="20">
+    <tr>
+      <td>
+      <table>
+        <tr><td><strong>Name</strong></td><td>{{selectedCustomer.name}}</td></tr>
+        <tr><td><strong>Phone</strong></td><td>{{selectedCustomer.phone}}</td></tr>
+        <tr><td><strong>Mail</strong></td><td>{{selectedCustomer.mail}}</td></tr>
+        <tr><td><strong>Address</strong></td><td>{{selectedCustomer.address}}</td></tr>
+      </table>
+    </td>
+    <td></td>
+    <td>
+        <div id="map" class="map"></div>  
+    </td>
+  </tr>
+</table>
 </div>
