@@ -30,7 +30,7 @@ test_proj:
     #- ls node_modules
     #- ls node_modules/.bin 
     #- ./node_modules/.bin/ng test ChromeHeadlessNoSandbox
-    - ./node_modules/.bin/ng test --watch=false --code-coverage=true
+    - ./node_modules/.bin/ng test Chrome_without_security
     #- ./node_modules/.bin/ng test --watch=false --code-coverage=true --single-run=true --browser=ChromeHeadless
     #- ./node_modules/.bin/ng test --no-sandbox
     #- ./node_modules/@angular/cli/bin/ng test --single-run --progress false
