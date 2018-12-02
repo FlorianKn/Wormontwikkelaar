@@ -16,6 +16,7 @@ test_proj:
     - linux
 
   script:
+    - npm install puppeteer
     - ng test --single-run --progress false
     - ng e2e --progress false
   script:
