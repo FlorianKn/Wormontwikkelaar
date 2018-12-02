@@ -51,7 +51,9 @@ import { TasksNotesComponent } from './tasks-notes/tasks-notes.component';
     ReactiveFormsModule,
     routing
   ],
-  exports: [],
+  exports: [
+    AlertComponent
+  ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
