@@ -1,7 +1,7 @@
 image: node:8.9.4
 
 before_script:
-  - npm install
+  - npm install -g
   - npm install puppeteer
   - npm update
 
