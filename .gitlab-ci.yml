@@ -2,6 +2,7 @@ image: node:8.9.4
 
 before_script:
   - npm install
+  - npm install puppeteer
 
 cache:
   paths:
@@ -16,7 +17,6 @@ test_proj:
     - linux
 
   script:
-    - npm install puppeteer
     - ng test --single-run --progress false
     - ng e2e --progress false
   script:
