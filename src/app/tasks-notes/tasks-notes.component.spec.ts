@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TasksNotesComponent } from './tasks-notes.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TasksNotesComponent', () => {
   let component: TasksNotesComponent;
@@ -9,7 +11,7 @@ describe('TasksNotesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TasksNotesComponent ],
-      imports: [FormsModule, ReactiveFormsModule]
+      imports: [FormsModule, ReactiveFormsModule, RouterTestingModule, HttpClientModule]
     })
     .compileComponents();
   }));
