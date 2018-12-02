@@ -16,7 +16,6 @@ export const TasksNotes: TaskNote[] = [
      { title: 'Lorem ipsum dolor sit amet, consectetuer', description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
      + 'Aenean commodo ligula eget dolor. Aenean massa.', type: Type[1],
       creationDate: new Date(2018, 11, 30, 8, 36), status: Status[1]},
-
      { title: 'Lorem ipsum dolor sit amet, consectetuer', description: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
      + 'Aenean commodo ligula eget dolor. Aenean massa.', type: Type[0],
       creationDate: new Date(2018, 10, 10, 10, 10), status: Status[2]},

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Technician } from './../technician';
 import { TaskNote } from './../task-note';
 import { TasksNotes } from './../mock-taskNote';
 import { Status } from './../mock-taskNote';
 import { Type } from './../mock-taskNote';
+import { AuthenticationService } from './../_services/authentication.service';
+import { User } from './../_models/user';
 
 @Component({
   selector: 'app-tasks-notes',
@@ -16,12 +17,15 @@ export class TasksNotesComponent implements OnInit {
   stati: String[];
   types: String[];
   creationDate: any;
-  technician: Technician;
+  technician: User;
   submitted = false;
   tasksNotes: TaskNote[];
   updatedIndex: number;
 
-  constructor() {
+  constructor(public authservice: AuthenticationService) {
+    this.authservice.currentUser.subscribe(user => {
+      this.technician = user;
+    });
     this.stati = Status;
     this.types = Type;
     this.tasksNotes = TasksNotes;
@@ -29,22 +33,25 @@ export class TasksNotesComponent implements OnInit {
 
   ngOnInit() {
     // load task notes from db and technicians
-    this.creationDate = formatDate(new Date());
+    this.creationDate = new Date();
     this.addNewTaskNoteModel();
   }
 
   addTaskNote(value: any) {
-    this.tasksNotes.unshift(new TaskNote(value.title, value.status, value.type, new Date(), value.description));
+    this.tasksNotes.unshift(new TaskNote(value.title, value.status, value.type, new Date(), value.description, this.technician.id));
   }
 
   updateTaskNoteModel(taskNote: TaskNote) {
     this.model =
-      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.description);
+      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate,
+       taskNote.description, this.technician.id);
+       console.log(this.model);
     this.action = 'update';
     this.updatedIndex = this.tasksNotes.indexOf(taskNote);
   }
   addNewTaskNoteModel() {
-    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '');
+    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '', this.technician.id);
+    console.log(this.model);
     this.action = 'insert';
   }
 
@@ -57,14 +64,14 @@ export class TasksNotesComponent implements OnInit {
 
   updateTaskNote(taskNote: TaskNote) {
     this.tasksNotes[this.updatedIndex] =
-      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.description);
+      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.description, this.technician.id);
   }
 
   onSubmit(model: any, action: string) {
     this.submitted = true;
     if (action === 'insert') {
       this.addTaskNote(model);
-      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '');
+      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '', this.technician.id);
     } else {
       this.updateTaskNote(model);
     }
@@ -85,9 +92,7 @@ export class TasksNotesComponent implements OnInit {
     }
     return res;
   }
-}
-
-function formatDate(date) {
+  formatDate(date) {
   const d = new Date(date);
   let month = '' + (d.getMonth() + 1),
     day = '' + d.getDate();
@@ -101,3 +106,5 @@ function formatDate(date) {
   }
   return [year, month, day].join('-');
 }
+}
+

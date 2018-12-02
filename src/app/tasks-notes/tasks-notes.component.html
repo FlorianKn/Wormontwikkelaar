@@ -85,7 +85,7 @@
               </div>
               <div class="form-group col-md-6 ml-auto">
                 <label for="creationDate">Creation date</label>
-                <input type="date" disabled class="form-control" id="creationDate" name="creationDate" [(ngModel)]="model.creationDate" [value]="creationDate" #creationDate="ngModel">
+                <input type="date" disabled class="form-control" id="creationDate" name="creationDate" [value]="formatDate(model.creationDate)">
               </div>
             </div>
             <div class="row">
@@ -113,10 +113,8 @@
               </div>
               <div class="form-group col-md-6 ml-auto">
                 <label for="technician">Technician</label>
-                <select class="form-control" id="technician" [(ngModel)]="model.technicianId" name="technicianId"
-                   #technician="ngModel">
-                  <option *ngFor="let technician of technicians" [value]="technician.id">{{technician.firstName}}
-                    {{technician.lastName}}</option>
+                <select class="form-control" disabled id="technician">
+                  <option [value]="technician.id" selected>{{technician.name}}</option>
                 </select>
               </div>
             </div>

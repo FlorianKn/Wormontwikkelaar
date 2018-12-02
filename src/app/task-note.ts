@@ -4,6 +4,7 @@ export class TaskNote {
         public status: String,
         public type: String,
         public creationDate: Date,
-        public description?: String
+        public description?: String,
+        public technicianId?: number
       ) {  }
 }
