@@ -44,14 +44,12 @@ export class TasksNotesComponent implements OnInit {
   updateTaskNoteModel(taskNote: TaskNote) {
     this.model =
       new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate,
-       taskNote.description, this.technician.id);
-       console.log(this.model);
+        taskNote.description, this.technician.id);
     this.action = 'update';
     this.updatedIndex = this.tasksNotes.indexOf(taskNote);
   }
   addNewTaskNoteModel() {
     this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '', this.technician.id);
-    console.log(this.model);
     this.action = 'insert';
   }
 
@@ -84,7 +82,7 @@ export class TasksNotesComponent implements OnInit {
   getTaskNotesByStatus(status: string) {
     let res = this.tasksNotes.filter(s => s.status === status).sort((a: TaskNote, b: TaskNote) => {
       const sortRes = new Date(a.creationDate).getTime() < new Date(b.creationDate).getTime() ? 1 :
-       new Date(a.creationDate).getTime() > new Date(b.creationDate).getTime() ? -1 : 0;
+        new Date(a.creationDate).getTime() > new Date(b.creationDate).getTime() ? -1 : 0;
       return sortRes;
     });
     if (status === 'Finished' && res.length > 10) {
@@ -93,18 +91,18 @@ export class TasksNotesComponent implements OnInit {
     return res;
   }
   formatDate(date) {
-  const d = new Date(date);
-  let month = '' + (d.getMonth() + 1),
-    day = '' + d.getDate();
-  const year = d.getFullYear();
+    const d = new Date(date);
+    let month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate();
+    const year = d.getFullYear();
 
-  if (month.length < 2) {
-    month = '0' + month;
+    if (month.length < 2) {
+      month = '0' + month;
+    }
+    if (day.length < 2) {
+      day = '0' + day;
+    }
+    return [year, month, day].join('-');
   }
-  if (day.length < 2) {
-    day = '0' + day;
-  }
-  return [year, month, day].join('-');
-}
 }
 
