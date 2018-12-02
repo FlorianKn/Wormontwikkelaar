@@ -15,8 +15,6 @@ test_proj:
   tags:
     - linux
 
-  before_script:
-    - export CHROME_BIN=/usr/bin/google-chrome
   script:
     - ng test --single-run --progress false
     - ng e2e --progress false
