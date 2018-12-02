@@ -24,7 +24,6 @@ export class TasksNotesComponent implements OnInit {
   constructor() {
     this.stati = Status;
     this.types = Type;
-    this.technician = new Technician(1, 'max.mustermann@gmail.com', 'Max', 'Mustermann', 'password', '0176234234234');
     this.tasksNotes = TasksNotes;
   }
 
@@ -35,17 +34,17 @@ export class TasksNotesComponent implements OnInit {
   }
 
   addTaskNote(value: any) {
-    this.tasksNotes.unshift(new TaskNote(value.title, value.status, value.type, new Date(), value.technicianId, value.description));
+    this.tasksNotes.unshift(new TaskNote(value.title, value.status, value.type, new Date(), value.description));
   }
 
   updateTaskNoteModel(taskNote: TaskNote) {
     this.model =
-      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
+      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.description);
     this.action = 'update';
     this.updatedIndex = this.tasksNotes.indexOf(taskNote);
   }
   addNewTaskNoteModel() {
-    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technician.id, '');
+    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '');
     this.action = 'insert';
   }
 
@@ -58,25 +57,33 @@ export class TasksNotesComponent implements OnInit {
 
   updateTaskNote(taskNote: TaskNote) {
     this.tasksNotes[this.updatedIndex] =
-      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
+      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.description);
   }
 
   onSubmit(model: any, action: string) {
     this.submitted = true;
     if (action === 'insert') {
       this.addTaskNote(model);
-      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technician.id, '');
+      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '');
     } else {
       this.updateTaskNote(model);
     }
   }
 
   CountTaskNotes2Status(status: string) {
-    return this.tasksNotes.filter(s => s.status === status).length;
+    return status === 'Finished' ? 10 : this.tasksNotes.filter(s => s.status === status).length;
   }
 
   getTaskNotesByStatus(status: string) {
-    return this.tasksNotes.filter(s => s.status === status);
+    let res = this.tasksNotes.filter(s => s.status === status).sort((a: TaskNote, b: TaskNote) => {
+      const sortRes = new Date(a.creationDate).getTime() < new Date(b.creationDate).getTime() ? 1 :
+       new Date(a.creationDate).getTime() > new Date(b.creationDate).getTime() ? -1 : 0;
+      return sortRes;
+    });
+    if (status === 'Finished' && res.length > 10) {
+      res = res.slice(0, 10);
+    }
+    return res;
   }
 }
 

@@ -2,9 +2,8 @@ export class Technician {
     constructor(
     public id: number,
     public email: string,
-    public firstName: string,
-    public lastName: string,
+    public name: string,
     public password: string,
-    public phoneNr: string
+    public phone: string
     ) { }
 }
