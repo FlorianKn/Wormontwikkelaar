@@ -1,10 +1,10 @@
 export class TaskNote {
     constructor(
-        public title: string,
-        public status: string,
-        public type: string,
+        public title: String,
+        public status: String,
+        public type: String,
         public creationDate: Date,
         public technicianId: number,
-        public description?: string
+        public description?: String
       ) {  }
 }

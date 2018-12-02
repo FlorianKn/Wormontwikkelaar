@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Technician } from './../technician';
 import { TaskNote } from './../task-note';
+import { TasksNotes } from './../mock-taskNote';
+import { Status } from './../mock-taskNote';
+import { Type } from './../mock-taskNote';
 
 @Component({
   selector: 'app-tasks-notes',
@@ -8,42 +11,21 @@ import { TaskNote } from './../task-note';
   styleUrls: ['./tasks-notes.component.css']
 })
 export class TasksNotesComponent implements OnInit {
-  action: string;
+  action: String;
   model: TaskNote;
-  stati: string[];
-  types: string[];
+  stati: String[];
+  types: String[];
   creationDate: any;
-  technicians: Technician[];
+  technician: Technician;
   submitted = false;
   tasksNotes: TaskNote[];
   updatedIndex: number;
 
   constructor() {
-    this.stati = ['Open', 'InProgress', 'Finished'];
-    this.types = ['Task', 'Note'];
-    this.technicians = [{
-      id: 1,
-      email: 'max.mustermann@gmail.com',
-      firstName: 'Max',
-      lastName: 'Mustermann',
-      password: 'password',
-      phoneNr: '0176234234234'
-    }, {
-      id: 2,
-      email: 'martin.schmitt@gmail.com',
-      firstName: 'Martin',
-      lastName: 'Schmitt',
-      password: 'password',
-      phoneNr: '0176456564566'
-    }, {
-      id: 3,
-      email: 'lena.meier@gmail.com',
-      firstName: 'Lena',
-      lastName: 'Meier',
-      password: 'password',
-      phoneNr: '01769867867345'
-    }];
-    this.tasksNotes = [];
+    this.stati = Status;
+    this.types = Type;
+    this.technician = new Technician(1, 'max.mustermann@gmail.com', 'Max', 'Mustermann', 'password', '0176234234234');
+    this.tasksNotes = TasksNotes;
   }
 
   ngOnInit() {
@@ -63,7 +45,7 @@ export class TasksNotesComponent implements OnInit {
     this.updatedIndex = this.tasksNotes.indexOf(taskNote);
   }
   addNewTaskNoteModel() {
-    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
+    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technician.id, '');
     this.action = 'insert';
   }
 
@@ -83,7 +65,7 @@ export class TasksNotesComponent implements OnInit {
     this.submitted = true;
     if (action === 'insert') {
       this.addTaskNote(model);
-      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
+      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technician.id, '');
     } else {
       this.updateTaskNote(model);
     }
