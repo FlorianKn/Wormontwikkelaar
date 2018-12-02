@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Technician } from './../technician';
 import { TaskNote } from './../task-note';
+import { TasksNotes } from './../mock-taskNote';
+import { Status } from './../mock-taskNote';
+import { Type } from './../mock-taskNote';
+import { AuthenticationService } from './../_services/authentication.service';
+import { User } from './../_models/user';
 
 @Component({
   selector: 'app-tasks-notes',
@@ -8,62 +12,46 @@ import { TaskNote } from './../task-note';
   styleUrls: ['./tasks-notes.component.css']
 })
 export class TasksNotesComponent implements OnInit {
-  action: string;
+  action: String;
   model: TaskNote;
-  stati: string[];
-  types: string[];
+  stati: String[];
+  types: String[];
   creationDate: any;
-  technicians: Technician[];
+  technician: User;
   submitted = false;
   tasksNotes: TaskNote[];
   updatedIndex: number;
 
-  constructor() {
-    this.stati = ['Open', 'InProgress', 'Finished'];
-    this.types = ['Task', 'Note'];
-    this.technicians = [{
-      id: 1,
-      email: 'max.mustermann@gmail.com',
-      firstName: 'Max',
-      lastName: 'Mustermann',
-      password: 'password',
-      phoneNr: '0176234234234'
-    }, {
-      id: 2,
-      email: 'martin.schmitt@gmail.com',
-      firstName: 'Martin',
-      lastName: 'Schmitt',
-      password: 'password',
-      phoneNr: '0176456564566'
-    }, {
-      id: 3,
-      email: 'lena.meier@gmail.com',
-      firstName: 'Lena',
-      lastName: 'Meier',
-      password: 'password',
-      phoneNr: '01769867867345'
-    }];
-    this.tasksNotes = [];
+  constructor(public authservice: AuthenticationService) {
+    this.authservice.currentUser.subscribe(user => {
+      this.technician = user;
+    });
+    this.stati = Status;
+    this.types = Type;
+    this.tasksNotes = TasksNotes;
   }
 
   ngOnInit() {
     // load task notes from db and technicians
-    this.creationDate = formatDate(new Date());
+    this.creationDate = new Date();
     this.addNewTaskNoteModel();
   }
 
   addTaskNote(value: any) {
-    this.tasksNotes.unshift(new TaskNote(value.title, value.status, value.type, new Date(), value.technicianId, value.description));
+    this.tasksNotes.unshift(new TaskNote(value.title, value.status, value.type, new Date(), value.description, this.technician.id));
   }
 
   updateTaskNoteModel(taskNote: TaskNote) {
     this.model =
-      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
+      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate,
+       taskNote.description, this.technician.id);
+       console.log(this.model);
     this.action = 'update';
     this.updatedIndex = this.tasksNotes.indexOf(taskNote);
   }
   addNewTaskNoteModel() {
-    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
+    this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '', this.technician.id);
+    console.log(this.model);
     this.action = 'insert';
   }
 
@@ -76,29 +64,35 @@ export class TasksNotesComponent implements OnInit {
 
   updateTaskNote(taskNote: TaskNote) {
     this.tasksNotes[this.updatedIndex] =
-      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.technicianId, taskNote.description);
+      new TaskNote(taskNote.title, taskNote.status, taskNote.type, taskNote.creationDate, taskNote.description, this.technician.id);
   }
 
   onSubmit(model: any, action: string) {
     this.submitted = true;
     if (action === 'insert') {
       this.addTaskNote(model);
-      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, this.technicians[0].id, '');
+      this.model = new TaskNote('', this.stati[0], this.types[0], this.creationDate, '', this.technician.id);
     } else {
       this.updateTaskNote(model);
     }
   }
 
   CountTaskNotes2Status(status: string) {
-    return this.tasksNotes.filter(s => s.status === status).length;
+    return status === 'Finished' ? 10 : this.tasksNotes.filter(s => s.status === status).length;
   }
 
   getTaskNotesByStatus(status: string) {
-    return this.tasksNotes.filter(s => s.status === status);
+    let res = this.tasksNotes.filter(s => s.status === status).sort((a: TaskNote, b: TaskNote) => {
+      const sortRes = new Date(a.creationDate).getTime() < new Date(b.creationDate).getTime() ? 1 :
+       new Date(a.creationDate).getTime() > new Date(b.creationDate).getTime() ? -1 : 0;
+      return sortRes;
+    });
+    if (status === 'Finished' && res.length > 10) {
+      res = res.slice(0, 10);
+    }
+    return res;
   }
-}
-
-function formatDate(date) {
+  formatDate(date) {
   const d = new Date(date);
   let month = '' + (d.getMonth() + 1),
     day = '' + d.getDate();
@@ -112,3 +106,5 @@ function formatDate(date) {
   }
   return [year, month, day].join('-');
 }
+}
+

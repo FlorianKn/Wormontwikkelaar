@@ -23,8 +23,8 @@
     <div id="collapse-{{index}}" class="collapse" [ngClass]="{'show': CountTaskNotes2Status(status) > 0}"
       [attr.aria-labelledby]="'heading-' + index" data-parent="#accordion">
       <div class="card-body">
-        <div class="row" style="margin-top: 10px;">
-          <div class="col-sm-6" *ngFor="let taskNote of getTaskNotesByStatus(status) ">
+        <div class="row" style="margin-top: 10px;"> <!-- limit finished objects by 10 items (| slice:0:10;)-->
+          <div class="col-sm-6" *ngFor="let taskNote of getTaskNotesByStatus(status)">
             <div class="card" *ngIf="taskNote.status == status" style="background-color: #e9ecefad;">
               <div class="card-body">
                 <div class="container-fluid">
@@ -42,9 +42,8 @@
                     <p class="card-text" style="height:100px; overflow:auto;">{{taskNote.description}}</p>
                   </div>
                   <div class="row">
-                    <p *ngFor="let technician of technicians"><small style="padding-left:0px;" *ngIf="technician.id == taskNote.technicianId"
-                        class="text-muted col-md-5">{{technician.firstName}}
-                        {{technician.lastName}}, {{taskNote.creationDate | date}}</small></p>
+                    <p><small style="padding-left:0px;"
+                        class="text-muted col-md-5">{{taskNote.creationDate | date}}</small></p>
                   </div>
                   <div class="row">
                     <button class="btn btn-default btn-sm col-md-4" (click)="deleteTaskNote(taskNote)"><i class="fas fa-trash-alt fa-sm"></i>
@@ -86,7 +85,7 @@
               </div>
               <div class="form-group col-md-6 ml-auto">
                 <label for="creationDate">Creation date</label>
-                <input type="date" disabled class="form-control" id="creationDate" name="creationDate" [(ngModel)]="model.creationDate" [value]="creationDate" #creationDate="ngModel">
+                <input type="date" disabled class="form-control" id="creationDate" name="creationDate" [value]="formatDate(model.creationDate)">
               </div>
             </div>
             <div class="row">
@@ -114,10 +113,8 @@
               </div>
               <div class="form-group col-md-6 ml-auto">
                 <label for="technician">Technician</label>
-                <select class="form-control" id="technician" [(ngModel)]="model.technicianId" name="technicianId"
-                   #technician="ngModel">
-                  <option *ngFor="let technician of technicians" [value]="technician.id">{{technician.firstName}}
-                    {{technician.lastName}}</option>
+                <select class="form-control" disabled id="technician">
+                  <option [value]="technician.id" selected>{{technician.name}}</option>
                 </select>
               </div>
             </div>
