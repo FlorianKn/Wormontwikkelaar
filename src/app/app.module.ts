@@ -52,7 +52,9 @@ import { TasksNotesComponent } from './tasks-notes/tasks-notes.component';
     routing
   ],
   exports: [
-    AlertComponent
+    AlertComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
