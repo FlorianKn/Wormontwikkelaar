@@ -21,7 +21,6 @@ export class CustomerDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.map = null; // test
     console.log(this.customerId);
     this.selectedCustomer = this.getCustomerById(this.customerId);
     console.log(this.selectedCustomer);
@@ -48,13 +47,14 @@ export class CustomerDetailComponent implements OnInit {
   ngOnChanges(){
     // map should only be relocated after initialy setting the center in ngOnInit()
     // otherwise map is not initialized and a null pointer exception occures
+    this.selectedCustomer = this.getCustomerById(this.customerId);
     if(this.initialized)
-      this.setCenter(this.getCustomerById(this.customerId).geolocation)
+      this.setCenter(this.selectedCustomer.geolocation)
   }
 
   // update central position of the map
   setCenter(geo: Geolocation) {
-    var view = this.map.getView();
+    const view = this.map.getView();
     view.setCenter(ol.proj.fromLonLat([geo.lng, geo.lat]));
     view.setZoom(15);
   }
