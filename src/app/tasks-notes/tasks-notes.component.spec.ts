@@ -5,7 +5,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserDynamicTestingModule,
   platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
-
 beforeAll(() => {
 TestBed.resetTestEnvironment();
 TestBed.initTestEnvironment(BrowserDynamicTestingModule,

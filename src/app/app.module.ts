@@ -49,8 +49,7 @@ import { TasksNotesComponent } from './tasks-notes/tasks-notes.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
-  ],
+    routing  ],
   exports: [
     AlertComponent,
     FormsModule,
