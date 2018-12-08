@@ -1,10 +1,11 @@
-<h1>Ihr Warehouse</h1>
+<h1>Sprinter T2</h1>
 
 <div class="list">
   <ol class="parts">
     <li *ngFor="let part of parts">
-      <h2 class="ca-main">{{part.name}}</h2>
-				<h3 class="ca-sub">{{part.description}}</h3>
+      <h2 class="ca-main">{{part.part.name}}</h2>
+				<h3 class="ca-sub">{{part.quantity}}</h3>
+        <h3 class="ca-sub">{{part.unit}}</h3>
     </li>
   </ol>
 </div>

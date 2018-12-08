@@ -1,9 +1,9 @@
 <h2>Bestellungen</h2>
 <div class = "grid-container">
-  <div class="grid-item" *ngFor="let order of orderList">
+  <div class="grid-item"  (click)="showAlert(order.orderNumber)" *ngFor="let order of orderList" id="{{order.orderNumber}}">
    <img src={{order.picUrl}} alt="Bohrmaschine" style="width:100%">
    <div class="container">
-    <h4>Beschreibung: {{order.description}}</h4>
+    <h4>Artikelnummer: {{order.orderNumber}}</h4>
     <p>Status: {{order.status}}</p>
     <p>Bestelldatum: {{order.orderDate}}</p>
    </div>

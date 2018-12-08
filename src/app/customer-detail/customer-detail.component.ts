@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Customer } from '../customer';
 import { Customers } from '../mock-customers';
+import { Geolocation } from '../geolocation';
 
 
 @Component({
@@ -12,6 +13,8 @@ export class CustomerDetailComponent implements OnInit {
   @Input() customerId: number;
   latitude: Number;
   longitude: Number;
+
+  initialized: boolean = false;
 
   map: any;
   public selectedCustomer: Customer;
@@ -26,19 +29,39 @@ export class CustomerDetailComponent implements OnInit {
     this.map = new ol.Map({
       target: 'map',
       layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([this.longitude, this.latitude]),
+          zoom: 15
         })
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([73.8567, 18.5204]),
-        zoom: 8
-      })
-    });
+      });
+
+  this.initialized = true;  
+
+  } 
+  
+  // will be executed every time one or more data-bound input properties change
+  ngOnChanges(){
+    // map should only be relocated after initialy setting the center in ngOnInit()
+    // otherwise map is not initialized and a null pointer exception occures
+    this.selectedCustomer = this.getCustomerById(this.customerId);
+    if(this.initialized)
+      this.setCenter(this.selectedCustomer.geolocation)
+  }
+
+  // update central position of the map
+  setCenter(geo: Geolocation) {
+    const view = this.map.getView();
+    view.setCenter(ol.proj.fromLonLat([geo.lng, geo.lat]));
+    view.setZoom(15);
   }
 
   getCustomerById(id: number): Customer {
     const index = Customers.findIndex(customer => customer.id === id);
     return Customers[index];
   }
+
 }

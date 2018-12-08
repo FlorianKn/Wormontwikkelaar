@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { WarehouseViewComponent } from './warehouse-view/warehouse-view.component';
@@ -10,8 +10,7 @@ import { AppointmentDetailsComponent } from './appointment-details/appointment-d
 import { ServiceCompletionComponent } from './service-completion/service-completion.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerDetailComponent } from './customer-detail/customer-detail.component';
-
-import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
@@ -46,12 +45,16 @@ import { TasksNotesComponent } from './tasks-notes/tasks-notes.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    HttpModule,
     HttpClientModule,
     FormsModule,
-    routing
+    ReactiveFormsModule,
+    routing  ],
+  exports: [
+    AlertComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  exports: [],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

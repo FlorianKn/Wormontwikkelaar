@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Geolocation } from '../geolocation';
 import { Customers } from '../mock-customers';
 import { Customer } from '../customer';
-
+import {CustomerDetailComponent} from './../customer-detail/customer-detail.component';
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
