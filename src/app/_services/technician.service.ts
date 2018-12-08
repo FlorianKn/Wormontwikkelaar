@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Technician } from '../technician';
+import { User } from '../_models/User';
 import { Technicians } from './mock-technician';
 
 @Injectable({
@@ -9,7 +9,7 @@ export class TechnicianService {
 
   constructor() { }
 
-  getTechnicians(): Technician[] {
+  getTechnicians(): User[] {
     return Technicians;
   }
 }

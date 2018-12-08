@@ -1,17 +1,17 @@
-import { Technician } from '../technician';
+import { User } from '../_models/User';
 
-export const Technicians: Technician[] = [
+export const Technicians: User[] = [
   { id: 0, 
     email: "Nils.Bier@hs-karlsruhe.de",
-    firstName: "Nils",
-    lastName: "Bier",
+    name: "Nils Bier",
     password: "BierForEver",
-    phoneNr: "0187 1234567"},
+    phone: "0187 1234567",
+    token: "1"},
 
   { id: 1, 
     email: "Nicole.Summer@hs-karlsruhe.de",
-    firstName: "Nicole",
-    lastName: "Summer",
+    name: "Nicole Summer",
     password: "TopSecret",
-    phoneNr: "0187 7654321"}
+    phone: "0187 7654321",
+    token: "2"}
 ];
