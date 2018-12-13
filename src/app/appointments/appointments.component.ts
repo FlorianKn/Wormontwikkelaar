@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Appointment } from './appointment';
+import { Appointment } from '../_models/appointment';
 import { AppointmentService } from '../_services/appointment.service';
 
 @Component({
@@ -24,5 +24,11 @@ export class AppointmentsComponent implements OnInit {
   onSelect(appointment: Appointment): void {
    this.selectedAppointment = appointment;
   }
+
+  getOpenAppointments(): void {}
+
+  getFinishedAppointments(): void {}
+
+  sortAppointmentsByDate(): void {}
 
 }
