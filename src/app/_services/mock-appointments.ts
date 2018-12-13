@@ -1,4 +1,4 @@
-import { Appointment } from '../appointments/appointment';
+import { Appointment } from '../_models/appointment';
 import { Technicians } from './mock-technician';
 import { Serviceproducts } from './mock-serviceproduct';
 
