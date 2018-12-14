@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskNote } from './../task-note';
-import { TasksNotes } from './../mock-taskNote';
-import { Status } from './../mock-taskNote';
-import { Type } from './../mock-taskNote';
-import { AuthenticationService } from './../_services/authentication.service';
-import { User } from './../_models/user';
+import { TaskNote } from '../../_models/task-note';
+import { TasksNotes } from '../../_mocks/mock-taskNote';
+import { Status } from '../../_mocks/mock-taskNote';
+import { Type } from '../../_mocks/mock-taskNote';
+import { AuthenticationService } from './../../_services/authentication.service';
+import { User } from './../../_models/user';
 
 @Component({
   selector: 'app-tasks-notes',

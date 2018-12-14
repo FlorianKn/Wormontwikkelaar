@@ -1,4 +1,4 @@
-import { TaskNote } from './task-note';
+import { TaskNote } from '../_models/task-note';
 
 export const Status: String[] = ['Open', 'Finished'];
 export const Type: String[] = ['Task', 'Note'];

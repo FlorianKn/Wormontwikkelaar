@@ -1,4 +1,4 @@
-import { Serviceproduct } from '../serviceproduct';
+import { Serviceproduct } from '../_models/serviceproduct';
 
 export const Serviceproducts: Serviceproduct[] = [
   { id: 0,

@@ -1,5 +1,5 @@
-import { Part } from './part';
-import { Parts } from './parts';
+import { Part } from '../_models/part';
+import { Parts } from '../_models/parts';
 
 export const PARTLIST: Part[] = [
     { id: 1, name: 'Schrauben', description: ' 10er Schrauben' },

@@ -11,7 +11,7 @@ import { ServiceCompletionComponent } from './../service-completion/service-comp
 import { CustomersComponent } from './../customers/customers.component';
 import { CustomerDetailComponent } from './../customer-detail/customer-detail.component';
 import { TasksNotesComponent } from './../tasks-notes/tasks-notes.component';
-import { routing } from './../app.routing';
+import { routing } from './../../app.routing';
 import {APP_BASE_HREF} from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 

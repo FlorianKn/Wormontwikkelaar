@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { first } from 'rxjs/operators';
 
-import { User } from '../_models/user';
-import { UserService, AuthenticationService } from '../_services/index';
+import { User } from '../../_models/user';
+import { UserService, AuthenticationService } from '../../_services/index';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent implements OnInit, OnDestroy {

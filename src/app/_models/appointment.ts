@@ -1,8 +1,8 @@
 import { User } from '../_models/User';
-import { Serviceproduct } from '../serviceproduct';
-import { Customer } from '../customer';
-import { Parts } from '../parts';
-import { Services } from '../services';
+import { Serviceproduct } from './serviceproduct';
+import { Customer } from './customer';
+import { Parts } from './parts';
+import { Services } from './services';
 
 export class Appointment {
   description: string;

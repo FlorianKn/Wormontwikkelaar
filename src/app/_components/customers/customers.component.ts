@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service'; // for REST Api
+import { DataService } from '../../_models/data.service'; // for REST Api
 import { Observable } from 'rxjs';
-import { Geolocation } from '../geolocation';
-import { Customers } from '../mock-customers';
-import { Customer } from '../customer';
+import { Geolocation } from '../../_models/geolocation';
+import { Customers } from '../../_mocks/mock-customers';
+import { Customer } from '../../_models/customer';
 import {CustomerDetailComponent} from './../customer-detail/customer-detail.component';
 @Component({
   selector: 'app-customers',

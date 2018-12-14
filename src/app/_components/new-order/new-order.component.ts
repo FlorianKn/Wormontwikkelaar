@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WarehouseOrder } from '../warehouse-order';
-import { Parts } from '../parts';
+import { WarehouseOrder } from '../../_models/warehouse-order';
+import { Parts } from '../../_models/parts';
 
 @Component({
   selector: 'app-new-order',

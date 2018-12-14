@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Part } from '../part';
-import { PARTSLIST } from '../mock-part';
+import { Part } from '../../_models/part';
+import { PARTSLIST } from '../../_mocks/mock-part';
 
 @Component({
   selector: 'app-warehouse-view',

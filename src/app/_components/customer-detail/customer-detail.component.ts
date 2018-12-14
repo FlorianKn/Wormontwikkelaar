@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Customer } from '../customer';
-import { Customers } from '../mock-customers';
-import { Geolocation } from '../geolocation';
+import { Customer } from '../../_models/customer';
+import { Customers } from '../../_mocks/mock-customers';
+import { Geolocation } from '../../_models/geolocation';
 
 
 @Component({

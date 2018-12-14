@@ -1,4 +1,4 @@
-import { Part } from './part';
+import { Part } from '../_models/part';
 
 describe('MockPart', () => {
   it('should create an instance', () => {

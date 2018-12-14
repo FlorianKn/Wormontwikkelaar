@@ -1,5 +1,5 @@
-import { Serviceproduct } from './serviceproduct';
-import { Parts } from './parts';
+import { Serviceproduct } from '../_models/serviceproduct';
+import { Parts } from '../_models/parts';
 import { PARTLIST } from './mock-part';
 
 const pts1 = new Parts();

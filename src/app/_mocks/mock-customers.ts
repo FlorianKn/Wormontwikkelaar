@@ -1,5 +1,5 @@
-import { Customer } from './customer';
-import { Geolocation } from './geolocation';
+import { Customer } from '../_models/customer';
+import { Geolocation } from '../_models/geolocation';
 
 const g1 = new Geolocation();
 g1.lat = 49.015348;
