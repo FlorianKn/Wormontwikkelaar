@@ -1,39 +1,42 @@
 import { Appointment } from '../_models/appointment';
 import { Technicians } from './mock-user';
-import { Serviceproducts } from './mock-serviceproduct';
+import { Serviceproducts } from './mock-serviceproducts';
+import { Customers } from './mock-customers';
 
 export const Appointments: Appointment[] = [
-  { description: 'Fixing server', 
-    technician: Technicians[0], 
-	serviceProduct: Serviceproducts[0], 
-	customer: null, 
-	plannedTime: 23, 
-	plannedParts: null,
-	plannedServices: null,
-	creationDate: '01.11.2018', 
-	dateTimeFrom: '05.11.2018', 
-	dateTimeTo: '20.11.2018', 
-	status: 0, // enum wird nicht gefunden: Status.Open 
-	usedParts: null,
-	usedServices: null,
-	serviceDateTime: 'What?', 
-	realDateFrom: '10.11.2018', 
-	realDateTo: '30.11.2018'},
-
-{ description: 'Fixing server', 
-    technician: Technicians[1], 
-	serviceProduct: Serviceproducts[1], 
-	customer: null, 
-	plannedTime: 23, 
-	plannedParts: null,
-	plannedServices: null,
-	creationDate: '01.11.2018', 
-	dateTimeFrom: '05.11.2018', 
-	dateTimeTo: '20.11.2018', 
-	status: 1, 
-	usedParts: null,
-	usedServices: null,
-	serviceDateTime: 'What?', 
-	realDateFrom: '10.11.2018', 
-	realDateTo: '30.11.2018'}
+	{
+		id: 1,
+		customer: Customers[0],
+		serviceProduct: Serviceproducts[0],
+		serviceDate: '02.12.2018',
+		plannedTimeRange: '1 day'
+	},
+	{
+		id: 2,
+		customer: Customers[1],
+		serviceProduct: Serviceproducts[1],
+		serviceDate: '03.12.2018',
+		plannedTimeRange: '2 days'
+	},
+	{
+		id: 3,
+		customer: Customers[2],
+		serviceProduct: Serviceproducts[0],
+		serviceDate: '05.12.2018',
+		plannedTimeRange: '1 day'
+	},
+	{
+		id: 4,
+		customer: Customers[3],
+		serviceProduct: Serviceproducts[0],
+		serviceDate: '10.12.2018',
+		plannedTimeRange: '5 days'
+	},
+	{
+		id: 5,
+		customer: Customers[4],
+		serviceProduct: Serviceproducts[0],
+		serviceDate: '13.12.2018',
+		plannedTimeRange: '1 day'
+	},
 ];

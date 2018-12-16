@@ -5,10 +5,14 @@ import { Parts } from './parts';
 import { Services } from './services';
 
 export class Appointment {
+  id: number;
+  customer: Customer; 
+  serviceProduct: Serviceproduct; 
+  serviceDate: string; // TODO Date Variable?
+  plannedTimeRange: string; // TODO Time Range Variable?
+/*
   description: string;
   technician: User; 
-  serviceProduct: Serviceproduct; 
-  customer: Customer; 
   plannedTime: number; // hours?
   plannedParts: Parts;
   plannedServices: Services;
@@ -18,9 +22,8 @@ export class Appointment {
   status: Status;
   usedParts: Parts;
   usedServices: Services;
-  serviceDateTime: string;
   realDateFrom: string;
-  realDateTo: string;
+  realDateTo: string; */
 }
 
 enum Status {

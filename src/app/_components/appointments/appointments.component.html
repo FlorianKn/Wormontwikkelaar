@@ -19,11 +19,11 @@
     <tbody>
       <tr *ngFor="let appointment of appointments" [class.selected]="appointment === selectedAppointment" (click)="onSelect(appointment)">
           <!--<span class="badge">{{appointment.description}}</span> -->
-          <th scope="row">2</th>
-          <td>{{appointment.customer}}</td>
-          <td>{{appointment.serviceProduct}}</td>
-          <td>{{appointment.dateTimeFrom}}</td>
-          <td>{{appointment.plannedTime}}</td>
+          <th scope="row">{{appointment.id}}</th>
+          <td>{{appointment.customer.name}}</td>
+          <td>{{appointment.serviceProduct.name}}</td>
+          <td>{{appointment.serviceDate}}</td>
+          <td>{{appointment.plannedTimeRange}}</td>
       </tr>
     </tbody>
   </table>
