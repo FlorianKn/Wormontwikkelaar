@@ -1,5 +1,6 @@
 import { User } from '../_models/User';
 
+// Die eigentlichen User stecken woanders, das hier sollte gelöscht werden
 export const Technicians: User[] = [
   { id: 0, 
     email: "Nils.Bier@hs-karlsruhe.de",

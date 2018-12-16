@@ -1,5 +1,5 @@
 import { Appointment } from '../_models/appointment';
-import { Technicians } from './mock-technician';
+import { Technicians } from './mock-user';
 import { Serviceproducts } from './mock-serviceproduct';
 
 export const Appointments: Appointment[] = [

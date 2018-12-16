@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../../_models/appointment';
-import { AppointmentService } from '../../_services/appointment.service';
+import { DataService } from '../../_services/data.service';
 
 @Component({
   selector: 'app-appointments',
@@ -11,14 +11,14 @@ export class AppointmentsComponent implements OnInit {
   selectedAppointment: Appointment;
   appointments: Appointment[];
 
-  constructor(private appointmentService: AppointmentService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
 	  this.getAppointments();
   }
   
   getAppointments(): void {
-	  this.appointments = this.appointmentService.getAppointments();
+	  this.appointments = this.dataService.getAppointments();
   }
   
   onSelect(appointment: Appointment): void {
