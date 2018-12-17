@@ -21,9 +21,7 @@ export class CustomerDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.customerId);
     this.selectedCustomer = this.getCustomerById(this.customerId);
-    console.log(this.selectedCustomer);
     this.latitude = this.selectedCustomer.geolocation.lat;
     this.longitude = this.selectedCustomer.geolocation.lng;
     this.map = new ol.Map({

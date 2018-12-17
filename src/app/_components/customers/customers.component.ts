@@ -20,11 +20,8 @@ export class CustomersComponent implements OnInit {
   }
 
   onSelect(customer: Customer): void {
-    console.log(this.selectedCustomer);
     delete this.selectedCustomer;
-    console.log(this.selectedCustomer);
     this.selectedCustomer = customer;
-    console.log(this.selectedCustomer);
   }
 
 }

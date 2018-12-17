@@ -3,21 +3,35 @@
 </div>
 
 <table class="table">
-  <thead class="text-muted bg-dark">
+  <thead class="text-dark bg-secondary">
     <tr>
+
       <th scope="col">#</th>
       <th scope="col">Name</th>
+
     </tr>
   </thead>
   <tbody>
+    <ng-container *ngFor="let customer of customers; let index = index">
+      <tr [style.cursor]="'pointer'" data-toggle="collapse" [attr.data-target]="'#collapse' + index" [class.selected]="customer === selectedCustomer? selected : collapsed" aria-expanded="false"
+      [attr.aria-controls]="'collapse' + index" (click)="onSelect(customer)">
+        <th>
+          {{customer.id}}
+        </th>
+        <td>
+          <!-- <div class="card-header" id="headingOne"> -->
+            <!-- <h5 class="mb-0"> -->
+                {{customer.name}}
+            <!-- </h5> -->
+          <!-- </div> -->
+        </td>
+      </tr>
 
-    <tr *ngFor="let customer of customers" [class.selected]="customer === selectedCustomer" (click)="onSelect(customer)">
-        <th scope="row">{{customer.id}}</th>
-        <td>{{customer.name}}</td>  
-    </tr>
-  </tbody>  
+      <tr  *ngIf="selectedCustomer && customer.id === selectedCustomer.id" id="'collapse' + {{index}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <td  colspan="2">
+          <app-customer-detail *ngIf="selectedCustomer.id && customer.id === selectedCustomer.id" [customerId]="selectedCustomer.id"></app-customer-detail>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
 </table>
-
-<div *ngIf="selectedCustomer">
-    <app-customer-detail [customerId]="selectedCustomer.id"></app-customer-detail>
-  </div> 
