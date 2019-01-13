@@ -1,4 +1,4 @@
-import { User } from '../_models/User';
+import { User } from '../_models/user';
 
 // Die eigentlichen User stecken woanders, das hier sollte gelöscht werden
 export const Technicians: User[] = [
