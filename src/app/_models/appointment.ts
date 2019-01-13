@@ -1,4 +1,4 @@
-import { User } from '../_models/User';
+import { User } from '../_models/user';
 import { Serviceproduct } from './serviceproduct';
 import { Customer } from './customer';
 import { Parts } from './parts';
