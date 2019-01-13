@@ -4,31 +4,37 @@
   <h4>My Appointments</h4>
 </div>
 
-<!--https://getbootstrap.com/docs/4.0/utilities/colors/-->
-<!--https://getbootstrap.com/docs/4.0/content/tables/-->
+<!--https://getbootstrap.com/docs/4.0/utilities/colors/  -->
+<!--https://getbootstrap.com/docs/4.0/content/tables/  -->
 <table class="table">
-    <thead class="text-muted bg-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Customer</th>
-        <th scope="col">Service Product</th>
-        <th scope="col">Service Date</th>
-        <th scope="col">Planned Time</th>
+  <thead class="text-muted bg-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Service Product</th>
+      <th scope="col">Service Date</th>
+      <th scope="col">Planned Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let appointment of appointments; let index = index">
+      <tr [style.cursor]="'pointer'" data-toggle="collapse" [attr.data-target]="'#collapse' + index" [class.selected]="appointment === selectedAppointment? selected : collapsed" aria-expanded="false"
+        [attr.aria-controls]="'collapse' + index" (click)="onSelect(appointment)">
+        <th scope="row">{{appointment.id}}</th>
+        <td class="nav-item">
+          <a routerLink="/customers">{{appointment.customer.name}}</a>
+        </td>
+        <td>{{appointment.serviceProduct.name}}</td>
+        <td>{{appointment.serviceDate}}</td>
+        <td>{{appointment.plannedTimeRange}}</td>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let appointment of appointments" [class.selected]="appointment === selectedAppointment" (click)="onSelect(appointment)">
-          <!--<span class="badge">{{appointment.description}}</span> -->
-          <th scope="row">{{appointment.id}}</th>
-          <td>{{appointment.customer.name}}</td>
-          <td>{{appointment.serviceProduct.name}}</td>
-          <td>{{appointment.serviceDate}}</td>
-          <td>{{appointment.plannedTimeRange}}</td>
+      <tr *ngIf="selectedAppointment && appointment.id === selectedAppointment.id" id="'collapse' + {{index}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <td  colspan="5">
+            <app-appointment-details *ngIf="selectedAppointment && appointment.id === selectedAppointment.id" [appointmentId]="selectedAppointment.id"></app-appointment-details>
+          </td>
       </tr>
-    </tbody>
-  </table>
+    </ng-container>
+  </tbody>
+</table>
 
-
-<a routerLink="/appointmentdetails"><button>Appointment Details</button></a>
 <a routerLink="/servicecompletion"><button>Service Completion</button></a>
-

@@ -10,6 +10,7 @@ export class Appointment {
   serviceProduct: Serviceproduct; 
   serviceDate: string; // TODO Date Variable?
   plannedTimeRange: string; // TODO Time Range Variable?
+  
 /*
   description: string;
   technician: User; 

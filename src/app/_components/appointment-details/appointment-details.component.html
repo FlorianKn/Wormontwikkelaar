@@ -1,6 +1,6 @@
-<p>
-  appointment-details works!
-</p>
-<a routerLink="/servicecompletion"><button>Service Completion</button></a>
-<a routerLink="/customerdetails"><button>Customer Details</button></a> <!-- page doesn't exist yet -->
-<a routerLink="/serviceproductdetails"><button>Service Product Details</button></a> <!-- page doesn't exist yet -->
+<div style="display:flex;justify-content: space-between">  
+  <table class="table" cellspacing="10" cellpadding="20">
+    <tr><td>Service Product Description:</td><td>{{selectedAppointment.serviceProduct.description}}</td></tr>
+    <tr><td>Customer address:</td><td>{{selectedAppointment.customer.address}}</td></tr>
+  </table>
+</div>

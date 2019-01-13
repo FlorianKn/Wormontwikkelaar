@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../../_models/appointment';
 import { DataService } from '../../_services/data.service';
+import { AppointmentDetailsComponent } from './../appointment-details/appointment-details.component'
 
 @Component({
   selector: 'app-appointments',
@@ -22,7 +23,8 @@ export class AppointmentsComponent implements OnInit {
   }
   
   onSelect(appointment: Appointment): void {
-   this.selectedAppointment = appointment;
+    delete this.selectedAppointment;
+    this.selectedAppointment = appointment;
   }
 
   getOpenAppointments(): void {}
