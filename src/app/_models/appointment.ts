@@ -3,6 +3,7 @@ import { Serviceproduct } from './serviceproduct';
 import { Customer } from './customer';
 import { Parts } from './parts';
 import { Services } from './services';
+import { ServiceOrderItem } from './serviceOrderItem';
 
 export class Appointment {
   id: number;
@@ -10,6 +11,7 @@ export class Appointment {
   serviceProduct: Serviceproduct; 
   serviceDate: string; // TODO Date Variable?
   plannedTimeRange: string; // TODO Time Range Variable?
+  serviceOrderItems: ServiceOrderItem;
   
 /*
   description: string;
