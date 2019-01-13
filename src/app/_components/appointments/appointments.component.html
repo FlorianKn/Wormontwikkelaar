@@ -24,7 +24,9 @@
         <td class="nav-item">
           <a routerLink="/customers">{{appointment.customer.name}}</a>
         </td>
-        <td>{{appointment.serviceProduct.name}}</td>
+        <td>
+          <a routerLink="/serviceproducts" >{{appointment.serviceProduct.name}}</a>
+        </td>
         <td>{{appointment.serviceDate}}</td>
         <td>{{appointment.plannedTimeRange}}</td>
       </tr>

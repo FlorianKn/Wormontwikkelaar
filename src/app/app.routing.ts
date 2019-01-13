@@ -12,6 +12,7 @@ import { ServiceCompletionComponent } from './_components/service-completion/ser
 import { CustomersComponent } from './_components/customers/customers.component';
 import { CustomerDetailComponent } from './_components/customer-detail/customer-detail.component';
 import { TasksNotesComponent } from './_components/tasks-notes/tasks-notes.component';
+import { ServiceProductsComponent } from './_components/service-products/service-products.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     { path: 'appointments', component: AppointmentsComponent },
     { path: 'appointmentdetails', component: AppointmentDetailsComponent },
     { path: 'servicecompletion', component: ServiceCompletionComponent },
+    { path: 'serviceproducts', component: ServiceProductsComponent },
     { path: 'customers', component: CustomersComponent  },
     { path: 'customerdetails', component: CustomerDetailComponent },
     { path: 'tasksNotes', component: TasksNotesComponent },

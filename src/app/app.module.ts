@@ -22,6 +22,7 @@ import { HomeComponent } from './_components/home/home.component';
 import { LoginComponent } from './_components/login/login.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { TasksNotesComponent } from './_components/tasks-notes/tasks-notes.component';
+import { ServiceProductsComponent } from './_components/service-products/service-products.component';
 
 
 
@@ -41,7 +42,8 @@ import { TasksNotesComponent } from './_components/tasks-notes/tasks-notes.compo
     ServiceCompletionComponent,
     CustomersComponent,
     CustomerDetailComponent,
-    TasksNotesComponent
+    TasksNotesComponent,
+    ServiceProductsComponent
   ],
   imports: [
     BrowserModule,

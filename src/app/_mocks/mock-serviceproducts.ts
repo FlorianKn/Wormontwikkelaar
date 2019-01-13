@@ -16,7 +16,7 @@ pts2.unit = 'STK';
 
 export const Serviceproducts: Serviceproduct[] = [
     {id: 1, name: 'Befestigung Regal', description: 'Regal an Wand festschrauben', customerId: 1,
-    serialNumber: 'SN0742836491', purchaseDate: new Date('January 31 2018 12:30'), bom: pts1},
+    serialNumber: 'SN0742836491', purchaseDate: new Date('January 31 2018 12:30')},
     {id: 2, name: 'Holz kürzen', description: 'Ein Stück Holz kürzen', customerId: 2,
-    serialNumber: 'SN6392749292', purchaseDate: new Date('March 03 2018 08:00'), bom: pts2}
+    serialNumber: 'SN6392749292', purchaseDate: new Date('March 03 2018 08:00')}
 ];

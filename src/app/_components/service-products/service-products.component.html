@@ -1,0 +1,25 @@
+<div style="display:flex;justify-content: space-between">
+    <h4>Service products</h4>
+  </div>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">serial number</th>
+      <th scope="col">name</th>
+      <th scope="col">description</th>
+      <th scope="col">purchase date</th>
+      <th scope="col">customer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let serviceProduct of serviceProducts; let index=index">
+      <th scope="row">{{index}}</th>
+      <td>{{serviceProduct.serialNumber}}</td>
+      <td>{{serviceProduct.name}}</td>
+      <td>{{serviceProduct.description}}</td>
+      <td>{{serviceProduct.purchaseDate | date }}</td>
+      <td><a routerLink="/customers">{{getCustomerNameById(serviceProduct.customerId)}}</a></td>
+    </tr>
+  </tbody>
+</table>
