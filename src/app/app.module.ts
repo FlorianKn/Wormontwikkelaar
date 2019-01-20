@@ -23,8 +23,8 @@ import { LoginComponent } from './_components/login/login.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { TasksNotesComponent } from './_components/tasks-notes/tasks-notes.component';
 import { ServiceProductsComponent } from './_components/service-products/service-products.component';
-
-
+import { SortableColumnComponent } from './_components/sortable-column/sortable-column.component';
+import { SortableTableDirective } from './_directives/sortable-table.directive';
 
 // import{HttpClientModule} from '@angular/common/http';
 
@@ -43,7 +43,9 @@ import { ServiceProductsComponent } from './_components/service-products/service
     CustomersComponent,
     CustomerDetailComponent,
     TasksNotesComponent,
-    ServiceProductsComponent
+    ServiceProductsComponent,
+    SortableColumnComponent,
+    SortableTableDirective
   ],
   imports: [
     BrowserModule,

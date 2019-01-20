@@ -1,10 +1,8 @@
-import { Parts } from "../_models/parts";
-import { Appointment } from "../_models/appointment";
-import { ServiceOrderItem } from "../_models/serviceOrderItem";
-import { PARTSLIST } from "./mock-part";
+import { ServiceOrderItem } from '../_models/serviceOrderItem';
+import { PARTSLIST } from './mock-part';
 
 export const ServiceOrderItems: ServiceOrderItem[] = [
-	{
+    {
         parts: PARTSLIST[0],
     },
     {
@@ -12,5 +10,4 @@ export const ServiceOrderItems: ServiceOrderItem[] = [
     },
     {
         parts: PARTSLIST[2],
-    },
-];
+    }];

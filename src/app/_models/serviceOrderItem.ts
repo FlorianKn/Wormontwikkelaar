@@ -1,6 +1,8 @@
-import { Parts } from "./parts";
+import { Parts } from './parts';
 
 
 export class ServiceOrderItem {
-    parts: Parts;
+    constructor(
+            public parts: Parts
+          ) { }
 }

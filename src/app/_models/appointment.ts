@@ -7,15 +7,15 @@ import { ServiceOrderItem } from './serviceOrderItem';
 
 export class Appointment {
   id: number;
-  customer: Customer; 
-  serviceProduct: Serviceproduct; 
+  customer: Customer;
+  serviceProduct: Serviceproduct;
   serviceDate: string; // TODO Date Variable?
   plannedTimeRange: string; // TODO Time Range Variable?
   serviceOrderItems: ServiceOrderItem;
-  
+
 /*
   description: string;
-  technician: User; 
+  technician: User;
   plannedTime: number; // hours?
   plannedParts: Parts;
   plannedServices: Services;
