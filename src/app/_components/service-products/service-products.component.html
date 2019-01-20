@@ -1,15 +1,15 @@
 <div style="display:flex;justify-content: space-between">
     <h4>Service products</h4>
   </div>
-<table class="table table-striped">
+<table sortable-table (sorted)="onSorted($event)" class="table table-striped">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">serial number</th>
-      <th scope="col">name</th>
-      <th scope="col">description</th>
-      <th scope="col">purchase date</th>
-      <th scope="col">customer</th>
+      <th scope="col" sortableColumn="serialNumber">serial number</th>
+      <th scope="col" sortableColumn="name">name</th>
+      <th scope="col" sortableColumn="description">description</th>
+      <th scope="col" sortableColumn="purchaseDate">purchase date</th>
+      <th scope="col" sortableColumn="customer">customer</th>
     </tr>
   </thead>
   <tbody>

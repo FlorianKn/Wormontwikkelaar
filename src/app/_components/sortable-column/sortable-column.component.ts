@@ -10,8 +10,8 @@ import { SortService } from '../../_services/sort.service';
 export class SortableColumnComponent implements OnInit, OnDestroy {
 
   constructor(private sortService: SortService) { }
-  @Input() sortableColumn: string;
-  @Input() sortDirection: string;
+  @Input('app-sortable-column') sortableColumn: string;
+  @Input('sort-direction') sortDirection: string;
   private columnSortedSubscription: Subscription;
 
   @HostListener('click')

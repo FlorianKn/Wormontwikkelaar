@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Serviceproducts } from '../../_mocks/mock-serviceproducts';
 import { Serviceproduct } from '../../_models/serviceproduct';
 import { Customer } from '../../_models/customer';
 import { Customers } from '../../_mocks/mock-customers';
+import { ServiceProductsService, ServiceProductSearchCriteria } from 'src/app/_services/service-products.service';
 
 @Component({
   selector: 'app-service-products',
@@ -12,15 +12,24 @@ import { Customers } from '../../_mocks/mock-customers';
 export class ServiceProductsComponent implements OnInit {
   serviceProducts: Serviceproduct[];
 
-  constructor() { }
+  constructor(private service: ServiceProductsService) { }
   ngOnInit() {
-    this.serviceProducts = Serviceproducts;
+    this.getServiceProducts({sortColumn: 'id', sortDirection: 'asc'});
   }
 
   getCustomerNameById(id: number): string {
     const index = Customers.findIndex(customer => customer.id === id);
     return Customers[index].name;
   }
+
+  getServiceProducts(criteria: ServiceProductSearchCriteria) {
+    this.serviceProducts = this.service.getServiceProducts(criteria);
+ }
+
+ onSorted($event) {
+   this.getServiceProducts($event);
+ }
+
 
 //   export const Serviceproducts: Serviceproduct[] = [
 //     {id: 1, name: 'Befestigung Regal', description: 'Regal an Wand festschrauben', customerId: 1,

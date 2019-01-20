@@ -25,6 +25,8 @@ import { TasksNotesComponent } from './_components/tasks-notes/tasks-notes.compo
 import { ServiceProductsComponent } from './_components/service-products/service-products.component';
 import { SortableColumnComponent } from './_components/sortable-column/sortable-column.component';
 import { SortableTableDirective } from './_directives/sortable-table.directive';
+import { SortService } from './_services/sort.service';
+import { ServiceProductsService } from './_services/service-products.service';
 
 // import{HttpClientModule} from '@angular/common/http';
 
@@ -63,7 +65,7 @@ import { SortableTableDirective } from './_directives/sortable-table.directive';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend
-    fakeBackendProvider],
+    fakeBackendProvider, SortService, ServiceProductsService],
   bootstrap: [AppComponent]
 })
 
