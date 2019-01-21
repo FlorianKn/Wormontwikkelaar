@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../_services/data.service';
 import { Appointment } from '../../_models/appointment';
 import { ServiceCompletion } from '../../_models/serviceCompletion'
+import { Part } from '../../_models/part';
+import { PARTLIST, PARTSLIST } from '../../_mocks/mock-part';
 
 @Component({
   selector: 'app-service-completion',
@@ -15,6 +17,9 @@ export class ServiceCompletionComponent implements OnInit {
   appointments: Appointment[] = this.dataService.getAppointments();
   realTime: String;
   serviceDate: String;
+  partlist: Part[] = PARTLIST;
+  units: string[];
+  partCount: Number[];
 
   constructor(private dataService: DataService) { }
 
@@ -22,6 +27,8 @@ export class ServiceCompletionComponent implements OnInit {
     this.selectedId = 0;
     this.appointments = this.dataService.getAppointments();
     this.selectedAppointment = this.appointments[0];
+    this.partCount = [0, 0, 0];
+    this.units = [PARTSLIST[0].unit, PARTSLIST[1].unit, PARTSLIST[2].unit]
   }
 
   onSelect(appointment: Appointment): void {
@@ -38,6 +45,10 @@ export class ServiceCompletionComponent implements OnInit {
 
     var serviceCompletion = new ServiceCompletion();
     serviceCompletion.customer = this.selectedAppointment.customer;
+
+    console.log(this.partCount[0]);
+    console.log(this.partCount[1]);
+    console.log(this.partCount[2]);
   }
 
 

@@ -22,7 +22,21 @@
   </div>
 
   <!-- TODO used parts -->   
-
+  <!-- for über part als table-->
+   
+  <div class="form-group col-md-6">
+    <table class="table" cellspacing="10" cellpadding="20">
+      <tr><th>Teile</th><th>Teilebeschreibung</th><th>Anzahl</th><th>Einheit</th></tr>
+      <ng-container *ngFor="let part of partlist; let index = index">
+        <tr>
+          <td>{{part.name}}</td>
+          <td>{{part.description}}</td>
+          <td><input type="number" required class="form-control" [(ngModel)]="partCount[index]" name="count" #title="ngModel"></td>
+          <td>{{units[index]}}</td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
   <div class="form-group col-md-6">
     <button type="submit" class="btn btn-success" (click)="serviceCompletion()">Complete Service Completion</button>
   </div>
