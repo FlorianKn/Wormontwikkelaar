@@ -1,8 +1,13 @@
 <div style="display:flex;justify-content: space-between">  
   <table class="table" cellspacing="10" cellpadding="20">
-    <tr><td>Teile:</td><td>{{selectedAppointment.serviceOrderItems.parts.part.name}}</td></tr>
-    <tr><td>Teilebeschreibung:</td><td>{{selectedAppointment.serviceOrderItems.parts.part.description}}</td></tr>
-    <tr><td>Anzahl:</td><td>{{selectedAppointment.serviceOrderItems.parts.quantity}}</td></tr>
-    <tr><td>Einheit:</td><td>{{selectedAppointment.serviceOrderItems.parts.unit}}</td></tr>
+    <tr><th>Teile</th><th>Teilebeschreibung</th><th>Anzahl</th><th>Einheit</th></tr>
+    <ng-container *ngFor="let serviceOrderItem of selectedAppointment.serviceOrderItems; let index = index">
+      <tr *ngIf="serviceOrderItem.quantity != 0">
+        <td>{{serviceOrderItem.part.name}}</td>
+        <td>{{serviceOrderItem.part.description}}</td>
+        <td>{{serviceOrderItem.quantity}}</td>
+        <td>{{serviceOrderItem.unit}}</td>
+      </tr>
+    </ng-container>
   </table>
 </div>

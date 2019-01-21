@@ -1,6 +1,6 @@
 import { Serviceproduct } from './serviceproduct';
 import { Customer } from './customer';
-import { ServiceOrderItem } from './serviceOrderItem';
+import { Parts } from './Parts';
 
 export class ServiceCompletion {
   id: number;
@@ -9,5 +9,5 @@ export class ServiceCompletion {
   serviceDate: string; // TODO Date Variable?
   realTimeRange: string; // TODO Time Range Variable?
   signature: ImageBitmap;
-  usedServiceOrderItems: ServiceOrderItem; // TODO array
+  usedServiceOrderItems: Parts[]; 
 }

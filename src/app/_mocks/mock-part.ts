@@ -1,12 +1,12 @@
 import { Part } from '../_models/part';
 import { Parts } from '../_models/parts';
 
+// Mocks for Warehouse
 export const PARTLIST: Part[] = [
     { id: 1, name: 'Schrauben', description: ' 10er Schrauben' },
     { id: 2, name: 'Kabel', description: 'Kabel' },
     { id: 3, name: 'Sensor', description: 'Optsensor' }
 ];
-
 
 export const PARTSLIST: Parts[] = [
     { id: 1, quantity: '5', unit: 'Paket', part: PARTLIST[0] },

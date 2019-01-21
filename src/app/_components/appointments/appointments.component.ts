@@ -15,11 +15,11 @@ export class AppointmentsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-	  this.getAppointments();
+    this.getAppointments();
   }
   
   getAppointments(): void {
-	  this.appointments = this.dataService.getAppointments();
+    this.appointments = this.dataService.getAppointments();
   }
   
   onSelect(appointment: Appointment): void {
