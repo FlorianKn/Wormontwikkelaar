@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Serviceproduct } from '../../_models/serviceproduct';
 import { Customer } from '../../_models/customer';
 import { Customers } from '../../_mocks/mock-customers';
-import { ServiceProductsService, ServiceProductSearchCriteria } from 'src/app/_services/service-products.service';
+import { ServiceProductsService, ServiceProductSearchCriteria } from '../../_services/service-products.service';
 
 @Component({
   selector: 'app-service-products',
