@@ -13,6 +13,7 @@ import { CustomersComponent } from './_components/customers/customers.component'
 import { CustomerDetailComponent } from './_components/customer-detail/customer-detail.component';
 import { TasksNotesComponent } from './_components/tasks-notes/tasks-notes.component';
 import { ServiceProductsComponent } from './_components/service-products/service-products.component';
+import { ServiceCompletionListComponent } from './_components/service-completion-list/service-completion-list.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     { path: 'customers', component: CustomersComponent  },
     { path: 'customerdetails', component: CustomerDetailComponent },
     { path: 'tasksNotes', component: TasksNotesComponent },
+    { path: 'servicecompletionlist', component: ServiceCompletionListComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

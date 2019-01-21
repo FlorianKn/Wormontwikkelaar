@@ -17,14 +17,12 @@
     <label for="RealTime">Required Time: </label>
     <input type="text" required class="form-control" id="RealTime" [(ngModel)]="realTime" name="time" #title="ngModel">
   </div>
-  <div class="form-group col-md-6">
-    <label for="Signature">Signature Customer: </label>
-  </div>
 
   <!-- TODO used parts -->   
   <!-- for über part als table-->
    
   <div class="form-group col-md-6">
+    <label for="table">Used Parts: </label>
     <table class="table" cellspacing="10" cellpadding="20">
       <tr><th>Teile</th><th>Teilebeschreibung</th><th>Anzahl</th><th>Einheit</th></tr>
       <ng-container *ngFor="let part of partlist; let index = index">
@@ -36,6 +34,10 @@
         </tr>
       </ng-container>
     </table>
+  </div>
+  
+  <div class="form-group col-md-6">
+    <label for="Signature">Signature Customer: </label>
   </div>
   <div class="form-group col-md-6">
     <button type="submit" class="btn btn-success" (click)="serviceCompletion()">Complete Service Completion</button>

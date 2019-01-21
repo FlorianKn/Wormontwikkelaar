@@ -1,0 +1,53 @@
+<div style="display:flex;justify-content: space-between">
+  <h4>Completed Services</h4>
+</div>
+  
+<table class="table">
+  <thead class="text-muted bg-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Customer</th>
+      <th scope="col">Service Product</th>
+      <th scope="col">Service Date</th>
+      <th scope="col">Planned Time</th>
+    </tr>
+  </thead>
+  <tbody>
+      <ng-container *ngFor="let serviceCompletion of serviceCompletionList; let index = index">
+        <tr [style.cursor]="'pointer'" data-toggle="collapse" [attr.data-target]="'#collapse' + index" [class.selected]="serviceCompletion === selectedServiceCompletion? selected : collapsed" aria-expanded="false"
+          [attr.aria-controls]="'collapse' + index" (click)="onSelect(serviceCompletion)">
+          <th scope="row">{{serviceCompletion.id}}</th>
+          <td class="nav-item">
+            <a routerLink="/customers">{{serviceCompletion.customer.name}}</a>
+          </td>
+          <td>
+            <a routerLink="/serviceproducts" >{{serviceCompletion.serviceProduct.name}}</a>
+          </td>
+          <td>{{serviceCompletion.serviceDate}}</td>
+          <td>{{serviceCompletion.realTimeRange}}</td>
+        </tr>
+        <tr *ngIf="selectedServiceCompletion && serviceCompletion.id === selectedServiceCompletion.id" id="'collapse' + {{index}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+          <td  colspan="5">
+
+            <div *ngIf="selectedServiceCompletion && serviceCompletion.id === selectedServiceCompletion.id" >
+              <div style="display:flex;justify-content: space-between">  
+                  <table class="table" cellspacing="10" cellpadding="20">
+                    <tr><th>Teile</th><th>Teilebeschreibung</th><th>Anzahl</th><th>Einheit</th></tr>
+                    <ng-container *ngFor="let usedServiceOrderItems of selectedServiceCompletion.usedServiceOrderItems; let index = index">
+                      <tr *ngIf="usedServiceOrderItems.quantity != 0">
+                        <td>{{usedServiceOrderItems.part.name}}</td>
+                        <td>{{usedServiceOrderItems.part.description}}</td>
+                        <td>{{usedServiceOrderItems.quantity}}</td>
+                        <td>{{usedServiceOrderItems.unit}}</td>
+                      </tr>
+                    </ng-container>
+                  </table>
+                </div>
+              </div>
+
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  

@@ -20,6 +20,7 @@ export class ServiceCompletionComponent implements OnInit {
   partlist: Part[] = PARTLIST;
   units: string[];
   partCount: Number[];
+  serviceCompletionList: ServiceCompletion[] = this.dataService.getServiceCompletionList();
 
   constructor(private dataService: DataService) { }
 

@@ -8,6 +8,6 @@ export class ServiceCompletion {
   serviceProduct: Serviceproduct; 
   serviceDate: string; // TODO Date Variable?
   realTimeRange: string; // TODO Time Range Variable?
-  signature: ImageBitmap;
+  signature: string;
   usedServiceOrderItems: Parts[]; 
 }

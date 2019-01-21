@@ -27,6 +27,7 @@ import { SortableColumnComponent } from './_components/sortable-column/sortable-
 import { SortableTableDirective } from './_directives/sortable-table.directive';
 import { SortService } from './_services/sort.service';
 import { ServiceProductsService } from './_services/service-products.service';
+import { ServiceCompletionListComponent } from './_components/service-completion-list/service-completion-list.component';
 
 // import{HttpClientModule} from '@angular/common/http';
 
@@ -47,7 +48,8 @@ import { ServiceProductsService } from './_services/service-products.service';
     TasksNotesComponent,
     ServiceProductsComponent,
     SortableColumnComponent,
-    SortableTableDirective
+    SortableTableDirective,
+    ServiceCompletionListComponent
   ],
   imports: [
     BrowserModule,

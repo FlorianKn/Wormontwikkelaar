@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Appointment } from '../_models/appointment'
 import { Appointments } from '../_mocks/mock-appointments'
+import { SERVICECOMPLETIONLIST } from '../_mocks/mock-serviceCompletionList';
+import { ServiceCompletion } from '../_models/serviceCompletion';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,10 @@ export class DataService {
   
   getAppointments(): Appointment[] {
 	  return Appointments;
+  }
+
+  getServiceCompletionList(): ServiceCompletion[] {
+    return SERVICECOMPLETIONLIST;
   }
 
   // TODO getter für die restlichen Mocks
