@@ -2,7 +2,7 @@ import { Serviceproduct } from './serviceproduct';
 import { Customer } from './customer';
 import { ServiceOrderItem } from './serviceOrderItem';
 
-export class Appointment {
+export class ServiceCompletion {
   id: number;
   customer: Customer; 
   serviceProduct: Serviceproduct; 
