@@ -1,5 +1,5 @@
 
-<form>
+<form (ngSubmit)="onSubmit(model, action);" #serviceCompletionForm="ngForm">
   <div class="form-group col-md-6" style="display:flex;justify-content: space-between">
     <h4>Service Completion Form</h4>
   </div>
@@ -17,9 +17,6 @@
     <label for="RealTime">Required Time: </label>
     <input type="text" required class="form-control" id="RealTime" [(ngModel)]="realTime" name="time" #title="ngModel">
   </div>
-
-  <!-- TODO used parts -->   
-  <!-- for über part als table-->
    
   <div class="form-group col-md-6">
     <label for="table">Used Parts: </label>
@@ -37,10 +34,14 @@
   </div>
   
   <div class="form-group col-md-6">
-    <label for="Signature">Signature Customer: </label>
-  </div>
+      <label for="Signature">Signature Customer: </label>
+      <input type="text" required class="form-control" id="Signature" [(ngModel)]="sign" name="sign" #title="ngModel">
+    </div>
+  
   <div class="form-group col-md-6">
-    <button type="submit" class="btn btn-success" (click)="serviceCompletion()">Complete Service Completion</button>
+    <button type="submit" [disabled]="!serviceCompletionForm.form.valid" class="btn btn-success" (click)="serviceCompletion()">
+      <i class="fas fa-check fa-sm"></i>Complete Service Completion
+    </button>
   </div>
 </form>
 

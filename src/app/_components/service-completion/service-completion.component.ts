@@ -4,6 +4,8 @@ import { Appointment } from '../../_models/appointment';
 import { ServiceCompletion } from '../../_models/serviceCompletion'
 import { Part } from '../../_models/part';
 import { PARTLIST, PARTSLIST } from '../../_mocks/mock-part';
+import { Serviceproduct } from '../../_models/serviceproduct';
+import { ServiceCompletionListComponent } from '../service-completion-list/service-completion-list.component';
 
 @Component({
   selector: 'app-service-completion',
@@ -15,12 +17,14 @@ export class ServiceCompletionComponent implements OnInit {
   selectedAppointment: Appointment;
   selectedId: number;
   appointments: Appointment[] = this.dataService.getAppointments();
-  realTime: String;
-  serviceDate: String;
+  realTime: string;
+  serviceDate: string;
   partlist: Part[] = PARTLIST;
   units: string[];
   partCount: Number[];
   serviceCompletionList: ServiceCompletion[] = this.dataService.getServiceCompletionList();
+  sign: string;
+  serviceCompletionObject: ServiceCompletion;
 
   constructor(private dataService: DataService) { }
 
@@ -42,14 +46,22 @@ export class ServiceCompletionComponent implements OnInit {
     console.log(this.appointments[this.selectedId-1].id);
     console.log(this.serviceDate);
     console.log(this.realTime);
-    this.selectedAppointment;
-
-    var serviceCompletion = new ServiceCompletion();
-    serviceCompletion.customer = this.selectedAppointment.customer;
-
     console.log(this.partCount[0]);
     console.log(this.partCount[1]);
     console.log(this.partCount[2]);
+/*
+    this.serviceCompletion = { 
+      id :this.appointments[this.selectedId-1].id,
+      customer: this.appointments[this.selectedId-1].customer,
+      serviceProduct: this.appointments[this.selectedId-1].serviceProduct,
+      serviceDate: this.serviceDate,
+      realTimeRange: this.realTime,
+      signature: this.sign,
+      usedServiceOrderItems: [ this.partCount[0], this.partCount[1] , this.partCount[2] ]                                      
+    }
+    
+    this.serviceCompletionList.push([serviceCompletion]);*/
+
   }
 
 
