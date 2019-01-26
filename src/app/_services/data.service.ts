@@ -12,10 +12,17 @@ import { ServiceCompletion } from '../_models/serviceCompletion';
 // The mocks may later be replaced by a REST service
 export class DataService {
 
+  appointments : Appointment[] = Appointments;
+
+
   constructor() { }
   
   getAppointments(): Appointment[] {
-	  return Appointments;
+	  return this.appointments;
+  }
+
+  setAppointments(a : Appointment[]) {
+    this.appointments = a;
   }
 
   getServiceCompletionList(): ServiceCompletion[] {
