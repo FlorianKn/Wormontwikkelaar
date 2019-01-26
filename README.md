@@ -13,6 +13,10 @@ To run project: `npm run start`
 
 https://gitlab.com/FlorianKn/Wormontwikkelaar
 
+## Sonarcloud
+
+https://sonarcloud.io/dashboard?id=FlorianKn_Wormontwikkelaar
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
