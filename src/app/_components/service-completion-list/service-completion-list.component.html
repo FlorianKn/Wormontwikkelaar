@@ -10,6 +10,7 @@
       <th scope="col">Service Product</th>
       <th scope="col">Service Date</th>
       <th scope="col">Planned Time</th>
+      <th>Signatur</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,7 @@
           </td>
           <td>{{serviceCompletion.serviceDate}}</td>
           <td>{{serviceCompletion.realTimeRange}}</td>
+          <td>{{serviceCompletion.signature}}</td>
         </tr>
         <tr *ngIf="selectedServiceCompletion && serviceCompletion.id === selectedServiceCompletion.id" id="'collapse' + {{index}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
           <td  colspan="5">
