@@ -19,7 +19,7 @@
           [attr.aria-controls]="'collapse' + index" (click)="onSelect(serviceCompletion)">
           <th scope="row">{{serviceCompletion.id}}</th>
           <td class="nav-item">
-            <a routerLink="/customers">{{serviceCompletion.customer.name}}</a>
+            <a [routerLink]="['/customers',serviceCompletion.customer.id]">{{serviceCompletion.customer.name}}</a>
           </td>
           <td>
             <a routerLink="/serviceproducts" >{{serviceCompletion.serviceProduct.name}}</a>

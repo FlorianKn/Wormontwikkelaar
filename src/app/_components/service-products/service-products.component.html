@@ -19,7 +19,7 @@
       <td>{{serviceProduct.name}}</td>
       <td>{{serviceProduct.description}}</td>
       <td>{{serviceProduct.purchaseDate | date }}</td>
-      <td><a routerLink="/customers">{{getCustomerNameById(serviceProduct.customerId)}}</a></td>
+      <td><a [routerLink]="['/customers',serviceProduct.customerId]">{{getCustomerNameById(serviceProduct.customerId)}}</a></td>
     </tr>
   </tbody>
 </table>
