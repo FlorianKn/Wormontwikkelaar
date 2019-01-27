@@ -6,7 +6,8 @@ import { SERVICECOMPLETIONPARTS1, SERVICECOMPLETIONPARTS2, SERVICECOMPLETIONPART
 
 
 export const SERVICECOMPLETIONLIST: ServiceCompletion[] = [
-{
+/*{
+
     id: 1,
     customer: Customers[0],
     serviceProduct: Serviceproducts[0],
@@ -30,5 +31,5 @@ export const SERVICECOMPLETIONLIST: ServiceCompletion[] = [
     realTimeRange: '2 day',
     signature: 'Lola Lollipop',
     usedServiceOrderItems: SERVICECOMPLETIONPARTS3
-    },
+    },*/
 ];
