@@ -8,6 +8,7 @@ export class Appointment {
   id: number;
   customer: Customer;
   serviceProduct: Serviceproduct;
+  description: string;
   serviceDate: string; // TODO Date Variable?
   plannedTimeRange: string; // TODO Time Range Variable?
   serviceOrderItems: Parts[];
