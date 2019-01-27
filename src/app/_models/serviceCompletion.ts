@@ -6,8 +6,8 @@ export class ServiceCompletion {
   id: number;
   customer: Customer; 
   serviceProduct: Serviceproduct; 
-  serviceDate: string; // TODO Date Variable?
-  realTimeRange: string; // TODO Time Range Variable?
+  serviceDate: string;
+  realTimeRange: string;
   signature: string;
-  usedServiceOrderItems: Parts[]; 
+  usedServiceOrderItems: Parts[];
 }
