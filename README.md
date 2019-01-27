@@ -9,6 +9,7 @@ Select folder "Wormontwikkelaar" in Visual Studio Code and open Terminal Window 
 to install modules: `npm udpate`
 
 To build project: `npm run build`
+
 To run project: `npm run start`
 
 ## Gitlab CI
@@ -21,7 +22,7 @@ https://sonarcloud.io/dashboard?id=FlorianKn_Wormontwikkelaar
 
 ## Production server
 
-After Build and run project command, navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+After executing commands "npm run build" and "npm run start", navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
