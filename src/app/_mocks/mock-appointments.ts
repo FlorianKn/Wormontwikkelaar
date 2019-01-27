@@ -9,6 +9,7 @@ export const Appointments: Appointment[] = [
 id: 1,
 customer: Customers[0],
 serviceProduct: Serviceproducts[0],
+description: 'Regal montieren',
 serviceDate: '02.12.2018',
 plannedTimeRange: '1 day',
 serviceOrderItems: AppointmentParts1
@@ -17,6 +18,7 @@ serviceOrderItems: AppointmentParts1
 id: 2,
 customer: Customers[1],
 serviceProduct: Serviceproducts[1],
+description: 'Tischbeine kürzen',
 serviceDate: '03.12.2018',
 plannedTimeRange: '2 days',
 serviceOrderItems: AppointmentParts2
@@ -25,6 +27,7 @@ serviceOrderItems: AppointmentParts2
 id: 3,
 customer: Customers[2],
 serviceProduct: Serviceproducts[0],
+description: 'Regal montieren',
 serviceDate: '05.12.2018',
 plannedTimeRange: '1 day',
 serviceOrderItems: AppointmentParts3
@@ -33,6 +36,7 @@ serviceOrderItems: AppointmentParts3
 id: 4,
 customer: Customers[3],
 serviceProduct: Serviceproducts[0],
+description: 'Regal montieren',
 serviceDate: '10.12.2018',
 plannedTimeRange: '5 days',
 serviceOrderItems: AppointmentParts2
@@ -41,6 +45,7 @@ serviceOrderItems: AppointmentParts2
 id: 5,
 customer: Customers[4],
 serviceProduct: Serviceproducts[0],
+description: 'Regal abbauen',
 serviceDate: '13.12.2018',
 plannedTimeRange: '1 day',
 serviceOrderItems: AppointmentParts1

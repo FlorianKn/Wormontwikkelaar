@@ -12,6 +12,7 @@
       <th scope="col">#</th>
       <th scope="col">Customer</th>
       <th scope="col">Service Product</th>
+      <th scope="col">Beschreibung</th>
       <th scope="col">Service Date</th>
       <th scope="col">Planned Time</th>
     </tr>
@@ -27,6 +28,7 @@
         <td>
           <a routerLink="/serviceproducts" >{{appointment.serviceProduct.name}}</a>
         </td>
+        <td>{{appointment.description}}</td>
         <td>{{appointment.serviceDate}}</td>
         <td>{{appointment.plannedTimeRange}}</td>
       </tr>

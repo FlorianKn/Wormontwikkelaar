@@ -15,8 +15,8 @@ pts2.quantity = '1';
 pts2.unit = 'STK';
 
 export const Serviceproducts: Serviceproduct[] = [
-    {id: 1, name: 'Befestigung Regal', description: 'Regal an Wand festschrauben', customerId: 1,
+    {id: 1, name: 'Regal', description: 'Wunderschönes Holzregal aus Mahagoni', customerId: 1,
     serialNumber: 'SN0742836491', purchaseDate: new Date('January 31 2018 12:30')},
-    {id: 2, name: 'Holz kürzen', description: 'Ein Stück Holz kürzen', customerId: 2,
+    {id: 2, name: 'Tisch', description: 'Holztisch aus Mahagoni', customerId: 2,
     serialNumber: 'SN6392749292', purchaseDate: new Date('March 03 2018 08:00')}
 ];
