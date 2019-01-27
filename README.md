@@ -4,7 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Start Project
 
-(After checking out you might need to run `npm udpate`)
+Select folder "Wormontwikkelaar" in Visual Studio Code and open Terminal Window in Visual Studio to insert following commands:
+
+to install modules: `npm udpate`
 
 To build project: `npm run build`
 To run project: `npm run start`
@@ -17,9 +19,9 @@ https://gitlab.com/FlorianKn/Wormontwikkelaar
 
 https://sonarcloud.io/dashboard?id=FlorianKn_Wormontwikkelaar
 
-## Development server
+## Production server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+After Build and run project command, navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
