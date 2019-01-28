@@ -2,7 +2,7 @@
   <h4>Tasks and Notes</h4>
   <button style="margin-left:auto;" type="button" class="btn btn-primary" (click)="addNewTaskNoteModel()" data-toggle="modal"
     data-target="#exampleModal">
-    <i class="fas fa-plus fa-sm"></i> New Task/ Note
+    <em class="fas fa-plus fa-sm"></em> New Task/ Note
   </button>
 </div>
 
@@ -29,9 +29,9 @@
               <div class="card-body">
                 <div class="container-fluid">
                   <div class="row">
-                    <i [ngClass]="{'fa-sticky-note': taskNote.type == 'Note', 'fa-tasks': taskNote.type == 'Task'}"
+                    <em [ngClass]="{'fa-sticky-note': taskNote.type == 'Note', 'fa-tasks': taskNote.type == 'Task'}"
                       [style.color]="taskNote.type == 'Task' ? 'coral' : 'cornflowerblue'" class="fas fa-sm ml-auto"
-                      style="margin: auto 0 auto 0;"></i>
+                      style="margin: auto 0 auto 0;"></em>
                     <p class="card-text" [style.color]="taskNote.type == 'Task' ? 'coral' : 'cornflowerblue'" style="margin-left:15px;">
                       {{taskNote.type}}</p>
                   </div>
@@ -46,10 +46,10 @@
                         class="text-muted col-md-5">{{taskNote.creationDate | date}}</small></p>
                   </div>
                   <div class="row">
-                    <button class="btn btn-default btn-sm col-md-4" (click)="deleteTaskNote(taskNote)"><i class="fas fa-trash-alt fa-sm"></i>
+                    <button class="btn btn-default btn-sm col-md-4" (click)="deleteTaskNote(taskNote)"><em class="fas fa-trash-alt fa-sm"></em>
                       Delete</button>
                     <button class="btn btn-default btn-sm col-md-4 ml-1" (click)="updateTaskNoteModel(taskNote)"
-                      data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit fa-sm"></i> Edit</button>
+                      data-toggle="modal" data-target="#exampleModal"><em class="fas fa-edit fa-sm"></em> Edit</button>
                   </div>
                 </div>
               </div>
@@ -121,8 +121,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fas fa-times fa-sm"></i> Close</button>
-          <button type="submit" [disabled]="!taskNoteForm.form.valid" class="btn btn-success"><i class="fas fa-check fa-sm"></i>
+          <button type="button" class="btn btn-default" data-dismiss="modal"><em class="fas fa-times fa-sm"></em> Close</button>
+          <button type="submit" [disabled]="!taskNoteForm.form.valid" class="btn btn-success"><em class="fas fa-check fa-sm"></em>
             Save</button>
         </div>
       </form>
